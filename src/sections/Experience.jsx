@@ -1,6 +1,8 @@
 import React from 'react';
 import SectionHeader from '../components/SectionHeader';
 import AnimatedTimeline from '../components/AnimatedTimeline';
+import sapLogo from '../assets/sap-logo.png';
+import lockheedLogo from '../assets/lockheed-logo.png';
 
 const Experience = () => {
     const experiences = [
@@ -10,6 +12,7 @@ const Experience = () => {
             company: 'SAP America Inc.',
             location: 'Newton Square, PA',
             description: 'Incoming SAP STAR Program Intern',
+            logo: sapLogo,
             achievements: [
                 'Incoming SAP STAR Program Intern supporting the MCC Backoffice team in enterprise systems and internal tooling',
                 'Will contribute to enterprise applications using SAP technologies including SAPUI5, JavaScript, and SQL'
@@ -21,6 +24,7 @@ const Experience = () => {
             company: 'Lockheed Martin Global Inc.',
             location: 'King of Prussia, PA',
             description: 'Extended Operations & Rotary Missions Systems',
+            logo: lockheedLogo,
             achievements: [
                 'Collaborated with 4+ team members to build a Unity-based virtual tour app for a helicopter plant in Stratford, CT',
                 'Designed and developed a co-op portal for Drexel University, increasing operational efficiency by 25%',
