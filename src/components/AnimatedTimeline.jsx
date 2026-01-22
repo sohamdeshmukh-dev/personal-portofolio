@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useTheme } from '../context/ThemeContext';
 
 const AnimatedTimeline = ({ experiences }) => {
     const containerRef = useRef(null);
@@ -84,14 +85,24 @@ const TimelineEntry = ({ experience, isActive, index, isLeft }) => {
                         </div>
                         {/* Logo on Right */}
                         <div className="pl-12">
-                            <LogoContainer logo={experience.logo} company={experience.company} isActive={isActive} />
+                            <LogoContainer
+                                logo={experience.logo}
+                                logoDark={experience.logoDark}
+                                company={experience.company}
+                                isActive={isActive}
+                            />
                         </div>
                     </>
                 ) : (
                     <>
                         {/* Logo on Left */}
                         <div className="pr-12">
-                            <LogoContainer logo={experience.logo} company={experience.company} isActive={isActive} />
+                            <LogoContainer
+                                logo={experience.logo}
+                                logoDark={experience.logoDark}
+                                company={experience.company}
+                                isActive={isActive}
+                            />
                         </div>
                         {/* Content on Right */}
                         <div className="pl-12">
@@ -103,15 +114,23 @@ const TimelineEntry = ({ experience, isActive, index, isLeft }) => {
 
             {/* Mobile Layout - Stacked */}
             <div className="md:hidden space-y-4">
-                <LogoContainer logo={experience.logo} company={experience.company} isActive={isActive} />
+                <LogoContainer
+                    logo={experience.logo}
+                    logoDark={experience.logoDark}
+                    company={experience.company}
+                    isActive={isActive}
+                />
                 <ContentCard experience={experience} isActive={isActive} />
             </div>
         </motion.div>
     );
 };
 
-const LogoContainer = ({ logo, company, isActive }) => {
-    const isLockheed = company.includes('Lockheed');
+const LogoContainer = ({ logo, logoDark, company, isActive }) => {
+    const { isDark } = useTheme();
+
+    // Use dark logo variant if available and in dark mode, otherwise use regular logo
+    const currentLogo = (isDark && logoDark) ? logoDark : logo;
 
     return (
         <motion.div
@@ -127,10 +146,9 @@ const LogoContainer = ({ logo, company, isActive }) => {
             transition={{ duration: 0.3 }}
         >
             <motion.img
-                src={logo}
+                src={currentLogo}
                 alt={`${company} logo`}
-                className={`max-h-full max-w-full object-contain transition-all duration-300 ${isLockheed ? 'dark:invert dark:brightness-[1.2] dark:contrast-[1.1]' : ''
-                    }`}
+                className="max-h-full max-w-full object-contain transition-all duration-300"
                 initial={{ opacity: 0, x: 0 }}
                 animate={{
                     opacity: isActive ? 1 : 0.6,
