@@ -18,13 +18,13 @@ const Contact = () => {
         },
         {
             label: 'LinkedIn',
-            value: 'linkedin.com/in/soham-deshmukh',
+            value: 'linkedin.com/in/sohamsdeshmukh',
             href: 'https://www.linkedin.com/in/sohamsdeshmukh/',
             icon: '💼'
         },
         {
             label: 'GitHub',
-            value: 'github.com/ssd333',
+            value: 'github.com/sohamdeshmukh-dev',
             href: 'https://github.com/sohamdeshmukh-dev',
             icon: '💻'
         },
