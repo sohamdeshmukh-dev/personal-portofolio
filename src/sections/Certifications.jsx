@@ -6,7 +6,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 const SkillBadge = ({ skill, delay = 0 }) => {
     return (
         <motion.span
-            className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-off-white text-sm font-medium"
+            className="px-4 py-2 dark:bg-white/5 bg-gray-200 border dark:border-white/10 border-gray-300 rounded-lg dark:text-off-white text-gray-900 text-sm font-medium"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{
@@ -52,7 +52,7 @@ const Certifications = () => {
 
                 {/* Certifications */}
                 <div className="mb-16">
-                    <h3 className="text-2xl font-bold text-off-white mb-6">Certifications</h3>
+                    <h3 className="text-2xl font-bold dark:text-off-white text-gray-900 mb-6">Certifications</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {certifications.map((cert, index) => (
                             <motion.div
@@ -67,8 +67,8 @@ const Certifications = () => {
                                 }}
                                 transition={{ delay: index * 0.1, duration: 0.4 }}
                             >
-                                <p className="text-off-white font-semibold">{cert.name}</p>
-                                <p className="text-cool-gray text-sm">{cert.issuer}</p>
+                                <p className="dark:text-off-white text-gray-900 font-semibold">{cert.name}</p>
+                                <p className="dark:text-cool-gray text-gray-600 text-sm">{cert.issuer}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -76,7 +76,7 @@ const Certifications = () => {
 
                 {/* Skills */}
                 <div>
-                    <h3 className="text-2xl font-bold text-off-white mb-6">Technical Skills</h3>
+                    <h3 className="text-2xl font-bold dark:text-off-white text-gray-900 mb-6">Technical Skills</h3>
                     {Object.entries(skillCategories).map(([category, skills], catIndex) => (
                         <div key={catIndex} className="mb-8">
                             <h4 className="text-lg font-semibold text-violet mb-4">{category}</h4>

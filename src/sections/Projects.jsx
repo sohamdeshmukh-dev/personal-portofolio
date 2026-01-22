@@ -8,17 +8,17 @@ const ProjectCard = ({ title, date, description, achievements, techStack, github
     return (
         <Card3D className="glass-effect-strong rounded-lg p-6 h-full flex flex-col" glowColor="blue">
             <div className="flex justify-between items-start mb-3">
-                <h3 className="text-2xl font-bold text-off-white">{title}</h3>
-                <span className="text-cool-gray text-sm whitespace-nowrap ml-4">{date}</span>
+                <h3 className="text-2xl font-bold dark:text-off-white text-gray-900">{title}</h3>
+                <span className="dark:text-cool-gray text-gray-600 text-sm whitespace-nowrap ml-4">{date}</span>
             </div>
 
-            <p className="text-cool-gray mb-4">{description}</p>
+            <p className="dark:text-cool-gray text-gray-700 mb-4">{description}</p>
 
             <ul className="space-y-2 mb-4 flex-1">
                 {achievements.map((achievement, index) => (
                     <motion.li
                         key={index}
-                        className="text-off-white flex items-start text-sm"
+                        className="dark:text-off-white text-gray-800 flex items-start text-sm"
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ delay: delay + index * 0.1, duration: 0.4 }}

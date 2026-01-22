@@ -44,12 +44,12 @@ const TimelineItem = ({ date, title, company, location, description, achievement
 
             {/* Content - Right Side */}
             <div className="flex-1 glass-effect rounded-lg p-6 hover:bg-white/10 transition-all duration-300">
-                <h3 className="text-2xl font-bold text-off-white mb-1">{title}</h3>
+                <h3 className="text-2xl font-bold dark:text-off-white text-gray-900 mb-1">{title}</h3>
                 <p className="text-soft-purple font-medium mb-2">{company} • {location}</p>
-                <p className="text-cool-gray mb-4 italic">{description}</p>
+                <p className="dark:text-cool-gray text-gray-600 mb-4 italic">{description}</p>
                 <ul className="space-y-2">
                     {achievements.map((achievement, index) => (
-                        <li key={index} className="text-off-white flex items-start">
+                        <li key={index} className="dark:text-off-white text-gray-800 flex items-start">
                             <span className="text-electric-blue mr-2 flex-shrink-0">◦</span>
                             <span>{achievement}</span>
                         </li>

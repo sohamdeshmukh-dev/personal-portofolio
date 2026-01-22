@@ -23,7 +23,7 @@ const AnimatedTimeline = ({ experiences }) => {
     return (
         <div ref={containerRef} className="relative py-20">
             {/* Animated Timeline Line */}
-            <div className="absolute left-1/4 top-0 bottom-0 w-0.5 bg-white/10">
+            <div className="absolute left-1/4 top-0 bottom-0 w-0.5 dark:bg-white/10 bg-gray-300">
                 <motion.div
                     className="absolute top-0 left-0 w-full bg-gradient-to-b from-electric-blue via-violet to-teal"
                     style={{
@@ -103,14 +103,14 @@ const TimelineEntry = ({ experience, isActive, index }) => {
                 }}
                 transition={{ duration: 0.3 }}
             >
-                <h3 className="text-2xl font-bold text-off-white mb-1">{experience.title}</h3>
+                <h3 className="text-2xl font-bold dark:text-off-white text-gray-900 mb-1">{experience.title}</h3>
                 <p className="text-violet font-medium mb-2">{experience.company} • {experience.location}</p>
-                <p className="text-cool-gray mb-4 italic">{experience.description}</p>
+                <p className="dark:text-cool-gray text-gray-600 mb-4 italic">{experience.description}</p>
                 <ul className="space-y-2">
                     {experience.achievements.map((achievement, idx) => (
                         <motion.li
                             key={idx}
-                            className="text-off-white flex items-start"
+                            className="dark:text-off-white text-gray-800 flex items-start"
                             initial={{ opacity: 0, x: -20 }}
                             animate={{
                                 opacity: isActive ? 1 : 0.5,

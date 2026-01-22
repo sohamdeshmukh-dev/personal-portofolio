@@ -52,7 +52,7 @@ const Contact = () => {
                     viewport={{ once: true }}
                 >
                     <motion.p
-                        className="text-off-white text-lg mb-8 text-center"
+                        className="dark:text-off-white text-gray-800 text-lg mb-8 text-center"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ delay: 0.3, duration: 0.6 }}
@@ -69,7 +69,7 @@ const Contact = () => {
                                 href={contact.href}
                                 target={contact.href.startsWith('http') ? '_blank' : undefined}
                                 rel={contact.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                                className="flex items-center gap-4 p-4 bg-white/5 border border-white/10 rounded-lg transition-all duration-200"
+                                className="flex items-center gap-4 p-4 dark:bg-white/5 bg-gray-100 border dark:border-white/10 border-gray-300 rounded-lg transition-all duration-200 hover:shadow-lg"
                                 initial={{ opacity: 0, x: -30 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 whileHover={{
@@ -83,8 +83,8 @@ const Contact = () => {
                             >
                                 <span className="text-3xl">{contact.icon}</span>
                                 <div>
-                                    <p className="text-cool-gray text-sm">{contact.label}</p>
-                                    <p className="text-off-white font-medium">{contact.value}</p>
+                                    <p className="dark:text-cool-gray text-gray-600 text-sm">{contact.label}</p>
+                                    <p className="dark:text-off-white text-gray-900 font-medium">{contact.value}</p>
                                 </div>
                             </motion.a>
                         ))}
@@ -98,7 +98,7 @@ const Contact = () => {
                     transition={{ delay: 0.6, duration: 0.6 }}
                     viewport={{ once: true }}
                 >
-                    <p className="text-cool-gray">
+                    <p className="dark:text-cool-gray text-gray-600">
                         Based in Philadelphia, PA & Chester Springs, PA
                     </p>
                 </motion.div>

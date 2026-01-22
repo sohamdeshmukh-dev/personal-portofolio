@@ -27,7 +27,7 @@ const About = () => {
                     transition={{ duration: 0.8, delay: 0.2 }}
                 >
                     <motion.p
-                        className="text-off-white text-lg leading-relaxed"
+                        className="dark:text-off-white text-gray-800 text-lg leading-relaxed"
                         initial={{ opacity: 0, x: -30 }}
                         animate={isInView ? { opacity: 1, x: 0 } : {}}
                         transition={{ duration: 0.6, delay: 0.4 }}
@@ -37,7 +37,7 @@ const About = () => {
                     </motion.p>
 
                     <motion.p
-                        className="text-off-white text-lg leading-relaxed"
+                        className="dark:text-off-white text-gray-800 text-lg leading-relaxed"
                         initial={{ opacity: 0, x: -30 }}
                         animate={isInView ? { opacity: 1, x: 0 } : {}}
                         transition={{ duration: 0.6, delay: 0.6 }}
@@ -49,7 +49,7 @@ const About = () => {
                     </motion.p>
 
                     <motion.p
-                        className="text-off-white text-lg leading-relaxed"
+                        className="dark:text-off-white text-gray-800 text-lg leading-relaxed"
                         initial={{ opacity: 0, x: -30 }}
                         animate={isInView ? { opacity: 1, x: 0 } : {}}
                         transition={{ duration: 0.6, delay: 0.8 }}
@@ -62,12 +62,12 @@ const About = () => {
                     </motion.p>
 
                     <motion.p
-                        className="text-cool-gray text-base mt-6"
+                        className="dark:text-cool-gray text-gray-600 text-base mt-6"
                         initial={{ opacity: 0 }}
                         animate={isInView ? { opacity: 1 } : {}}
                         transition={{ duration: 0.6, delay: 1 }}
                     >
-                        <span className="font-semibold text-off-white">Extracurriculars:</span> CS Theory Reading Group,
+                        <span className="font-semibold dark:text-off-white text-gray-900">Extracurriculars:</span> CS Theory Reading Group,
                         The Drexel Society of Artificial Intelligence, Business Analytics Club
                     </motion.p>
                 </motion.div>

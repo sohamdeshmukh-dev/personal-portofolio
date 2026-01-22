@@ -7,7 +7,7 @@ const SectionHeader = ({ title, subtitle }) => {
                 {title}
             </h2>
             {subtitle && (
-                <p className="text-cool-gray text-lg">
+                <p className="dark:text-cool-gray text-gray-600 text-lg">
                     {subtitle}
                 </p>
             )}

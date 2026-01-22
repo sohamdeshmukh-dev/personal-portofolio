@@ -1,12 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTheme } from '../context/ThemeContext';
 
 const GradientBlob = ({ color, size = 400, top, left, delay = 0 }) => {
+    const { isDark } = useTheme();
+
     const colors = {
-        blue: 'rgba(0, 212, 255, 0.15)',
-        violet: 'rgba(139, 92, 246, 0.15)',
-        teal: 'rgba(20, 184, 166, 0.15)',
-        magenta: 'rgba(236, 72, 153, 0.15)',
+        blue: isDark ? 'rgba(0, 212, 255, 0.15)' : 'rgba(0, 212, 255, 0.15)',
+        violet: isDark ? 'rgba(139, 92, 246, 0.15)' : 'rgba(139, 92, 246, 0.15)',
+        teal: isDark ? 'rgba(20, 184, 166, 0.15)' : 'rgba(20, 184, 166, 0.15)',
+        magenta: isDark ? 'rgba(236, 72, 153, 0.15)' : 'rgba(236, 72, 153, 0.15)',
     };
 
     return (
@@ -21,7 +24,7 @@ const GradientBlob = ({ color, size = 400, top, left, delay = 0 }) => {
             }}
             animate={{
                 scale: [1, 1.2, 1],
-                opacity: [0.3, 0.5, 0.3],
+                opacity: isDark ? [0.3, 0.5, 0.3] : [0.3, 0.5, 0.3],
                 x: [0, 30, 0],
                 y: [0, -30, 0],
             }}
