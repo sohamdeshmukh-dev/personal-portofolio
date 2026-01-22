@@ -44,8 +44,10 @@ html {
   --text-tertiary: #6b7280;
   --border-color: rgba(255, 255, 255, 0.1);
   --glass-bg: rgba(15, 23, 42, 0.6);
+  --glass-bg-strong: rgba(15, 23, 42, 0.8);
   --glass-border: rgba(255, 255, 255, 0.08);
   --shadow-color: rgba(0, 0, 0, 0.5);
+  --card-hover-bg: rgba(255, 255, 255, 0.1);
 
   /* Canvas and 3D background colors */
   --canvas-bg: #020617;
@@ -65,9 +67,11 @@ html {
   --text-secondary: #475569;
   --text-tertiary: #64748b;
   --border-color: rgba(0, 0, 0, 0.1);
-  --glass-bg: rgba(248, 250, 252, 0.8);
-  --glass-border: rgba(0, 0, 0, 0.08);
-  --shadow-color: rgba(0, 0, 0, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-bg-strong: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(0, 0, 0, 0.12);
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --card-hover-bg: rgba(0, 0, 0, 0.05);
 
   /* Canvas and 3D background colors */
   --canvas-bg: #f8fafc;
@@ -125,11 +129,12 @@ body {
   }
 
   .glass-effect-strong {
-    background: var(--glass-bg);
+    background: var(--glass-bg-strong);
     backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
     border: 1px solid var(--glass-border);
     box-shadow: 0 10px 15px -3px var(--shadow-color);
-    transition: background 0.3s ease, border-color 0.3s ease;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   }
 
   .glow-blue {
