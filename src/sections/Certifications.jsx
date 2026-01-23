@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import SectionHeader from '../components/SectionHeader';
+import GitHubActivity from '../components/GitHubActivity';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const SkillBadge = ({ skill, delay = 0 }) => {
@@ -88,6 +89,9 @@ const Certifications = () => {
                         </div>
                     ))}
                 </div>
+
+                {/* GitHub Activity */}
+                <GitHubActivity />
             </div>
         </section>
     );

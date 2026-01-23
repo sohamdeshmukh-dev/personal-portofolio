@@ -30,8 +30,8 @@ const Contact = () => {
         },
         {
             label: 'HackerRank',
-            value: 'hackerrank.com/profile/ssd333',
-            href: 'https://www.hackerrank.com/profile/ssd333',
+            value: 'hackerrank.com/profile/soham_deshmukh_1',
+            href: 'https://www.hackerrank.com/profile/soham_deshmukh_1',
             icon: '🏆'
         }
     ];

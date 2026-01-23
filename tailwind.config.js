@@ -7,12 +7,18 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        display: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'Menlo', 'Monaco', 'Courier New', 'monospace'],
+      },
       colors: {
         'navy': '#0a1628',
         'indigo': '#1e1b4b',
         'near-black': '#050505',
-        'deep-black': '#020617',
-        'midnight-blue': '#0f172a',
+        'deep-black': '#000000',
+        'true-black': '#0a0a0a',
+        'midnight-blue': '#0f0f0f',
         'electric-blue': '#00d4ff',
         'violet': '#8b5cf6',
         'teal': '#14b8a6',
@@ -26,14 +32,14 @@ export default {
         'gradient-main': 'linear-gradient(135deg, #020617 0%, #0f172a 50%, #000000 100%)',
       },
       animation: {
-        'fade-in': 'fadeIn 0.8s ease-out',
-        'slide-up': 'slideUp 0.8s ease-out',
-        'slide-in-left': 'slideInLeft 0.8s ease-out',
-        'slide-in-right': 'slideInRight 0.8s ease-out',
-        'float': 'float 6s ease-in-out infinite',
-        'glow': 'glow 2s ease-in-out infinite alternate',
+        'fade-in': 'fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
+        'slide-up': 'slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1)',
+        'slide-in-left': 'slideInLeft 0.7s cubic-bezier(0.16, 1, 0.3, 1)',
+        'slide-in-right': 'slideInRight 0.7s cubic-bezier(0.16, 1, 0.3, 1)',
+        'float': 'float 6s cubic-bezier(0.45, 0, 0.55, 1) infinite',
+        'glow': 'glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite alternate',
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'gradient-shift': 'gradientShift 8s ease infinite',
+        'gradient-shift': 'gradientShift 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
         fadeIn: {

@@ -6,6 +6,7 @@ import GradientBlob from './components/GradientBlob';
 import ThemeToggle from './components/ThemeToggle';
 import Hero from './sections/Hero';
 import About from './sections/About';
+import Education from './sections/Education';
 import Experience from './sections/Experience';
 import Projects from './sections/Projects';
 import Certifications from './sections/Certifications';
@@ -21,11 +22,19 @@ function App() {
   });
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -73,7 +82,7 @@ function App() {
               </motion.a>
 
               <div className="hidden md:flex gap-8 items-center">
-                {['About', 'Experience', 'Projects', 'Skills', 'Contact'].map((item, index) => (
+                {['About', 'Education', 'Experience', 'Projects', 'Skills', 'Contact'].map((item, index) => (
                   <motion.a
                     key={item}
                     href={`#${item.toLowerCase()}`}
@@ -96,6 +105,7 @@ function App() {
         <main className="relative z-0">
           <Hero />
           <About />
+          <Education />
           <Experience />
           <Projects />
           <Certifications />

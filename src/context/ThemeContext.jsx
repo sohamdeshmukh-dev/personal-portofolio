@@ -40,12 +40,12 @@ export const ThemeProvider = ({ children }) => {
     const getThemeColors = () => {
         const isDark = theme === 'dark';
         return {
-            canvasBackground: isDark ? '#020617' : '#f8fafc',
-            fogColor: isDark ? '#020617' : '#f8fafc',
-            particleOpacity: isDark ? 0.85 : 0.8,
-            shapeOpacity: isDark ? 0.25 : 0.25,
-            shapeEmissive: isDark ? 0.3 : 0.1,
-            ambientLight: isDark ? 0.5 : 0.7,
+            canvasBackground: isDark ? '#000000' : '#f8fafc',
+            fogColor: isDark ? '#000000' : '#f8fafc',
+            particleOpacity: isDark ? 0.9 : 0.8,
+            shapeOpacity: isDark ? 0.3 : 0.25,
+            shapeEmissive: isDark ? 0.4 : 0.1,
+            ambientLight: isDark ? 0.6 : 0.7,
         };
     };
 

@@ -134,7 +134,7 @@ const LogoContainer = ({ logo, logoDark, company, isActive }) => {
 
     return (
         <motion.div
-            className="glass-effect rounded-lg p-8 h-48 flex items-center justify-center group"
+            className="glass-effect rounded-lg p-8 h-64 flex items-center justify-center group"
             animate={{
                 scale: isActive ? 1 : 0.95,
                 borderColor: isActive ? 'rgba(0, 212, 255, 0.2)' : 'rgba(255, 255, 255, 0.05)'
@@ -143,18 +143,18 @@ const LogoContainer = ({ logo, logoDark, company, isActive }) => {
                 scale: 1.02,
                 boxShadow: '0 0 30px rgba(0, 212, 255, 0.15)'
             }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
         >
             <motion.img
                 src={currentLogo}
                 alt={`${company} logo`}
                 className="max-h-full max-w-full object-contain transition-all duration-300"
-                initial={{ opacity: 0, x: 0 }}
+                style={{ maxHeight: '140px', maxWidth: '100%' }}
+                initial={{ opacity: 0 }}
                 animate={{
                     opacity: isActive ? 1 : 0.6,
-                    x: 0
                 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
+                transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             />
         </motion.div>
     );

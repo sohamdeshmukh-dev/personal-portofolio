@@ -6,7 +6,7 @@ import * as THREE from 'three';
 
 function ParticleField({ mousePosition, isDark }) {
     const mesh = useRef();
-    const particlesCount = 2000;
+    const particlesCount = 1500; // Reduced from 2000 for better performance
 
     const particles = useMemo(() => {
         const positions = new Float32Array(particlesCount * 3);
@@ -92,7 +92,7 @@ function ParticleField({ mousePosition, isDark }) {
                 size={0.08}
                 vertexColors
                 transparent
-                opacity={isDark ? 0.85 : 0.8}
+                opacity={isDark ? 0.9 : 0.8}
                 sizeAttenuation
                 blending={THREE.AdditiveBlending}
             />
@@ -135,10 +135,10 @@ function FloatingShape({ position, rotation, color, scale, speed, geometryType, 
                 roughness={0.1}
                 metalness={0.9}
                 transparent
-                opacity={isDark ? 0.25 : 0.15}
+                opacity={isDark ? 0.3 : 0.15}
                 wireframe
                 emissive={color}
-                emissiveIntensity={isDark ? 0.3 : 0.1}
+                emissiveIntensity={isDark ? 0.4 : 0.1}
             />
         </mesh>
     );
