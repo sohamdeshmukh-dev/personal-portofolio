@@ -7,14 +7,10 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 const SkillBadge = ({ skill, delay = 0 }) => {
     return (
         <motion.span
-            className="px-4 py-2 dark:bg-white/5 bg-gray-200 border dark:border-white/10 border-gray-300 rounded-lg dark:text-off-white text-gray-900 text-sm font-medium"
+            className="px-4 py-2 dark:bg-white/5 bg-gray-200 border dark:border-white/10 border-gray-300 rounded-lg dark:text-off-white text-gray-900 text-sm font-medium hover:bg-electric-blue/10 hover:border-electric-blue/30 transition-colors"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{
-                scale: 1.05,
-                backgroundColor: 'rgba(0, 212, 255, 0.1)',
-                borderColor: 'rgba(0, 212, 255, 0.3)'
-            }}
+            whileHover={{ scale: 1.05 }}
             transition={{ delay, duration: 0.3 }}
             viewport={{ once: true }}
         >
@@ -44,9 +40,7 @@ const Certifications = () => {
     };
 
     return (
-        <section id="certifications" className="py-20 px-6 bg-white/[0.01] relative">
-            {/* Add anchor for Skills navigation */}
-            <div id="skills" className="absolute -top-20"></div>
+        <section id="skills" className="py-20 px-6 bg-white/[0.01] relative">
             <div ref={ref} className="max-w-6xl mx-auto">
                 <SectionHeader
                     title="Certifications & Skills"
@@ -60,14 +54,9 @@ const Certifications = () => {
                         {certifications.map((cert, index) => (
                             <motion.div
                                 key={index}
-                                className="glass-effect-strong rounded-lg p-4"
+                                className="glass-effect-strong rounded-lg p-4 hover:scale-[1.02] hover:bg-electric-blue/5 hover:border-electric-blue/20 transition-all"
                                 initial={{ opacity: 0, x: -30 }}
                                 animate={isInView ? { opacity: 1, x: 0 } : {}}
-                                whileHover={{
-                                    scale: 1.02,
-                                    backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                                    borderColor: 'rgba(0, 212, 255, 0.2)'
-                                }}
                                 transition={{ delay: index * 0.1, duration: 0.4 }}
                             >
                                 <p className="dark:text-off-white text-gray-900 font-semibold">{cert.name}</p>

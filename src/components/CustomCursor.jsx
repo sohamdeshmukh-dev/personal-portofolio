@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useTheme } from '../context/ThemeContext';
 
 const CustomCursor = () => {
     const cursorRef = useRef(null);
@@ -10,6 +11,7 @@ const CustomCursor = () => {
     const [isHovering, setIsHovering] = useState(false);
     const [isClicking, setIsClicking] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
+    const { isDark } = useTheme();
 
     useEffect(() => {
         // Check if device is mobile/touch
@@ -35,22 +37,22 @@ const CustomCursor = () => {
         const animateCursor = () => {
             if (!cursorRef.current || !trailRef.current) return;
 
-            // Smooth lerp for cursor (faster)
-            const cursorLerp = 0.15;
+            // Smooth lerp for cursor (faster for better tracking)
+            const cursorLerp = 0.2;
             cursorPos.current.x += (mousePos.current.x - cursorPos.current.x) * cursorLerp;
             cursorPos.current.y += (mousePos.current.y - cursorPos.current.y) * cursorLerp;
 
             // Smooth lerp for trail (slower)
-            const trailLerp = 0.08;
+            const trailLerp = 0.1;
             trailPos.current.x += (mousePos.current.x - trailPos.current.x) * trailLerp;
             trailPos.current.y += (mousePos.current.y - trailPos.current.y) * trailLerp;
 
             // Apply transforms using transform for better performance
-            const scale = isClicking ? 0.85 : isHovering ? 1.15 : 1;
-            const trailScale = isHovering ? 1.3 : 1;
+            const scale = isClicking ? 0.85 : isHovering ? 1.2 : 1;
+            const trailScale = isHovering ? 1.4 : 1;
 
-            cursorRef.current.style.transform = `translate3d(${cursorPos.current.x - 24}px, ${cursorPos.current.y - 24}px, 0) scale(${scale})`;
-            trailRef.current.style.transform = `translate3d(${trailPos.current.x - 20}px, ${trailPos.current.y - 20}px, 0) scale(${trailScale})`;
+            cursorRef.current.style.transform = `translate3d(${cursorPos.current.x - 32}px, ${cursorPos.current.y - 32}px, 0) scale(${scale})`;
+            trailRef.current.style.transform = `translate3d(${trailPos.current.x - 28}px, ${trailPos.current.y - 28}px, 0) scale(${trailScale})`;
 
             rafId.current = requestAnimationFrame(animateCursor);
         };
@@ -84,10 +86,15 @@ const CustomCursor = () => {
                 cancelAnimationFrame(rafId.current);
             }
         };
-    }, [isMobile, isHovering, isClicking]);
+    }, [isMobile, isHovering, isClicking, isDark]);
 
     // Don't render on mobile
     if (isMobile) return null;
+
+    // Theme-aware glow color
+    const glowColor = isDark
+        ? 'rgba(0, 212, 255, 0.6)'
+        : 'rgba(0, 150, 200, 0.5)';
 
     return (
         <>
@@ -96,17 +103,17 @@ const CustomCursor = () => {
                 ref={trailRef}
                 className="fixed top-0 left-0 pointer-events-none z-[9998] will-change-transform"
                 style={{
-                    width: '40px',
-                    height: '40px',
-                    opacity: isHovering ? 0.5 : 0.25,
+                    width: '56px',
+                    height: '56px',
+                    opacity: isHovering ? 0.6 : 0.3,
                     transition: 'opacity 0.2s ease',
                 }}
             >
                 <div
                     className="w-full h-full rounded-full"
                     style={{
-                        background: 'radial-gradient(circle, rgba(0, 212, 255, 0.6) 0%, transparent 70%)',
-                        filter: 'blur(12px)',
+                        background: `radial-gradient(circle, ${glowColor} 0%, transparent 70%)`,
+                        filter: 'blur(16px)',
                     }}
                 />
             </div>
@@ -116,8 +123,8 @@ const CustomCursor = () => {
                 ref={cursorRef}
                 className="fixed top-0 left-0 pointer-events-none z-[9999] will-change-transform"
                 style={{
-                    width: '48px',
-                    height: '48px',
+                    width: '64px',
+                    height: '64px',
                     transition: 'filter 0.2s ease',
                 }}
             >
@@ -126,7 +133,9 @@ const CustomCursor = () => {
                     alt=""
                     className="w-full h-full select-none"
                     style={{
-                        filter: isHovering ? 'brightness(1.2) drop-shadow(0 0 10px rgba(0, 212, 255, 0.8))' : 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))',
+                        filter: isHovering
+                            ? `brightness(1.3) drop-shadow(0 0 12px ${glowColor})`
+                            : 'drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3))',
                         imageRendering: 'crisp-edges',
                     }}
                     draggable="false"

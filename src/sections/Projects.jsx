@@ -34,8 +34,8 @@ const ProjectCard = ({ title, date, description, achievements, techStack, github
                 {techStack.map((tech, index) => (
                     <motion.span
                         key={index}
-                        className="px-3 py-1 text-xs font-medium bg-electric-blue/10 text-electric-blue rounded-full border border-electric-blue/20"
-                        whileHover={{ scale: 1.1, backgroundColor: 'rgba(0, 212, 255, 0.2)' }}
+                        className="px-3 py-1 text-xs font-medium bg-electric-blue/10 text-electric-blue rounded-full border border-electric-blue/20 hover:bg-electric-blue/20 hover:scale-110 transition-all"
+                        whileHover={{ scale: 1.1 }}
                     >
                         {tech}
                     </motion.span>

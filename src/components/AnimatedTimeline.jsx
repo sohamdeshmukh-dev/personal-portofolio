@@ -134,16 +134,18 @@ const LogoContainer = ({ logo, logoDark, company, isActive }) => {
 
     return (
         <motion.div
-            className="glass-effect rounded-lg p-8 h-64 flex items-center justify-center group"
+            className="glass-effect rounded-lg p-8 h-64 flex items-center justify-center group border transition-all"
             animate={{
                 scale: isActive ? 1 : 0.95,
-                borderColor: isActive ? 'rgba(0, 212, 255, 0.2)' : 'rgba(255, 255, 255, 0.05)'
             }}
             whileHover={{
                 scale: 1.02,
                 boxShadow: '0 0 30px rgba(0, 212, 255, 0.15)'
             }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            style={{
+                borderColor: isActive ? 'rgba(0, 212, 255, 0.2)' : 'rgba(255, 255, 255, 0.05)'
+            }}
         >
             <motion.img
                 src={currentLogo}
@@ -181,16 +183,18 @@ const ContentCard = ({ experience, isActive }) => {
 
             {/* Content Card */}
             <motion.div
-                className="glass-effect-strong rounded-lg p-6"
+                className="glass-effect-strong rounded-lg p-6 border transition-all"
                 animate={{
                     scale: isActive ? 1 : 0.95,
-                    borderColor: isActive ? 'rgba(0, 212, 255, 0.3)' : 'rgba(255, 255, 255, 0.08)'
                 }}
                 whileHover={{
                     scale: 1.02,
                     boxShadow: '0 0 30px rgba(0, 212, 255, 0.2)'
                 }}
                 transition={{ duration: 0.3 }}
+                style={{
+                    borderColor: isActive ? 'rgba(0, 212, 255, 0.3)' : 'rgba(255, 255, 255, 0.08)'
+                }}
             >
                 <h3 className="text-xl md:text-2xl font-bold dark:text-off-white text-gray-900 mb-1">
                     {experience.title}

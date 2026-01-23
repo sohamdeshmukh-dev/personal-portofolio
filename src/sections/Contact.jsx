@@ -69,15 +69,10 @@ const Contact = () => {
                                 href={contact.href}
                                 target={contact.href.startsWith('http') ? '_blank' : undefined}
                                 rel={contact.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                                className="flex items-center gap-4 p-4 dark:bg-white/5 bg-gray-100 border dark:border-white/10 border-gray-300 rounded-lg transition-all duration-200 hover:shadow-lg"
+                                className="flex items-center gap-4 p-4 dark:bg-white/5 bg-gray-100 border dark:border-white/10 border-gray-300 rounded-lg transition-all duration-200 hover:shadow-lg hover:bg-electric-blue/10 hover:border-electric-blue/30 hover:shadow-electric-blue/20"
                                 initial={{ opacity: 0, x: -30 }}
                                 whileInView={{ opacity: 1, x: 0 }}
-                                whileHover={{
-                                    scale: 1.05,
-                                    backgroundColor: 'rgba(0, 212, 255, 0.1)',
-                                    borderColor: 'rgba(0, 212, 255, 0.3)',
-                                    boxShadow: '0 0 20px rgba(0, 212, 255, 0.2)'
-                                }}
+                                whileHover={{ scale: 1.05 }}
                                 transition={{ delay: index * 0.1, duration: 0.4 }}
                                 viewport={{ once: true }}
                             >
