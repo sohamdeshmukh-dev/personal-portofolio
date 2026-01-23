@@ -252,6 +252,58 @@ const AnimatedBackground = () => {
                     mousePosition={mousePosition}
                     isDark={isDark}
                 />
+
+                {/* Additional shapes for more dynamic background */}
+                <FloatingShape
+                    position={[-6, -3, -10]}
+                    rotation={[0, 0, 0]}
+                    geometryType="torus"
+                    color="#00d4ff"
+                    scale={1.1}
+                    speed={0.006}
+                    mousePosition={mousePosition}
+                    isDark={isDark}
+                />
+                <FloatingShape
+                    position={[3, 5, -9]}
+                    rotation={[0, 0, 0]}
+                    geometryType="sphere"
+                    color="#14b8a6"
+                    scale={0.9}
+                    speed={0.004}
+                    mousePosition={mousePosition}
+                    isDark={isDark}
+                />
+                <FloatingShape
+                    position={[-4, -6, -13]}
+                    rotation={[0, 0, 0]}
+                    geometryType="cone"
+                    color="#8b5cf6"
+                    scale={1.4}
+                    speed={0.003}
+                    mousePosition={mousePosition}
+                    isDark={isDark}
+                />
+                <FloatingShape
+                    position={[7, -4, -11]}
+                    rotation={[0, 0, 0]}
+                    geometryType="octahedron"
+                    color="#ec4899"
+                    scale={1.2}
+                    speed={0.007}
+                    mousePosition={mousePosition}
+                    isDark={isDark}
+                />
+                <FloatingShape
+                    position={[-7, 6, -16]}
+                    rotation={[0, 0, 0]}
+                    geometryType="tetrahedron"
+                    color="#00d4ff"
+                    scale={1.7}
+                    speed={0.002}
+                    mousePosition={mousePosition}
+                    isDark={isDark}
+                />
             </Canvas>
         </div>
     );

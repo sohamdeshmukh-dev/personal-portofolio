@@ -45,6 +45,8 @@ const Certifications = () => {
 
     return (
         <section id="certifications" className="py-20 px-6 bg-white/[0.01] relative">
+            {/* Add anchor for Skills navigation */}
+            <div id="skills" className="absolute -top-20"></div>
             <div ref={ref} className="max-w-6xl mx-auto">
                 <SectionHeader
                     title="Certifications & Skills"

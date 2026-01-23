@@ -11,6 +11,7 @@ import Experience from './sections/Experience';
 import Projects from './sections/Projects';
 import Certifications from './sections/Certifications';
 import Contact from './sections/Contact';
+import CustomCursor from './components/CustomCursor';
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
@@ -40,7 +41,10 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="min-h-screen relative dark:text-off-white text-gray-900 selection:bg-electric-blue selection:text-white transition-colors duration-300">
+      {/* Custom Cursor - Desktop Only */}
+      <CustomCursor />
+
+      <div className="min-h-screen relative dark:text-off-white text-gray-900 selection:bg-electric-blue selection:text-white transition-colors duration-300 cursor-none">
         {/* Enhanced Scroll Progress Bar */}
         <motion.div
           className="fixed top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-electric-blue via-violet to-magenta z-[60] origin-left shadow-lg shadow-electric-blue/50"

@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
 import SectionHeader from '../components/SectionHeader';
+import drexelLogo from '../assets/drexel-logo.png';
+import drexelLogoDark from '../assets/drexel-logo-dark.png';
 
 const Education = () => {
     const { isDark } = useTheme();
@@ -12,8 +14,8 @@ const Education = () => {
         degree: 'Bachelor of Science in Computer Science',
         graduation: '2028',
         location: 'Philadelphia, PA',
-        logo: '/src/assets/drexel-logo.png',
-        logoDark: '/src/assets/drexel-logo-dark.png',
+        logo: drexelLogo,
+        logoDark: drexelLogoDark,
         coursework: [
             'Data Structures & Algorithms',
             'Systems Programming',

@@ -100,27 +100,6 @@ const Hero = () => {
                     </motion.a>
                 </motion.div>
             </div>
-
-            {/* Enhanced Scroll Indicator */}
-            <motion.div
-                className="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1, y: [0, 12, 0] }}
-                transition={{
-                    opacity: { duration: 1, delay: 1.2 },
-                    y: { duration: 2, delay: 1.5, repeat: Infinity, ease: 'easeInOut' }
-                }}
-                onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
-            >
-                <div className="w-[35px] h-[60px] rounded-full border-2 dark:border-electric-blue/60 border-electric-blue/80 flex justify-center p-2 shadow-lg dark:shadow-electric-blue/30 shadow-electric-blue/50 backdrop-blur-sm dark:bg-black/20 bg-white/20">
-                    <motion.div
-                        className="w-2 h-2 bg-electric-blue rounded-full shadow-lg shadow-electric-blue/50"
-                        animate={{ y: [0, 20, 0] }}
-                        transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-                    />
-                </div>
-                <p className="text-xs dark:text-electric-blue/80 text-electric-blue font-medium mt-2 text-center">Scroll</p>
-            </motion.div>
         </section>
     );
 };
