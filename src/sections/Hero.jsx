@@ -98,7 +98,7 @@ const Hero = () => {
 
                     {/* HackerRank Icon with official branding */}
                     <motion.a
-                        href="https://www.hackerrank.com/profile/sohamdeshmukh"
+                        href="https://www.hackerrank.com/profile/soham_deshmukh_1"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="group relative px-6 py-4 glass-effect-strong rounded-lg border border-[#00EA64]/30 flex items-center gap-3 hover:border-[#00EA64] hover:bg-[#00EA64]/10 transition-all duration-300"
