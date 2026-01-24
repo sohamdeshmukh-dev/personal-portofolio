@@ -2,7 +2,8 @@ import React from 'react';
 import SectionHeader from '../components/SectionHeader';
 import AnimatedTimeline from '../components/AnimatedTimeline';
 import sapLogo from '../assets/sap-logo.png';
-import lockheedLogo from '../assets/lockheed-logo.png';
+import lockheedLogo from '../assets/lockheed-logo-dark.png';
+import lockheedLogoLight from '../assets/lockheed-logo-light.png';
 
 const Experience = () => {
     const experiences = [
@@ -25,6 +26,7 @@ const Experience = () => {
             location: 'King of Prussia, PA',
             description: 'Extended Operations & Rotary Missions Systems',
             logo: lockheedLogo,
+            logoLight: lockheedLogoLight,
             achievements: [
                 'Collaborated with 4+ team members to build a Unity-based virtual tour app for a helicopter plant in Stratford, CT',
                 'Designed and developed a co-op portal for Drexel University, increasing operational efficiency by 25%',
@@ -37,7 +39,7 @@ const Experience = () => {
 
     return (
         <section id="experience" className="py-20 px-6 bg-white/[0.01] relative">
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-6xl mx-auto">
                 <SectionHeader
                     title="Work Experience"
                     subtitle="Building production software at leading tech companies"

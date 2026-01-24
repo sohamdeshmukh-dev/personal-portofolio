@@ -49,14 +49,24 @@ function App() {
       <div className="min-h-screen relative dark:text-off-white text-gray-900 selection:bg-electric-blue selection:text-white transition-colors duration-300">
         {/* Enhanced Scroll Progress Bar */}
         <motion.div
-          className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-electric-blue via-violet to-magenta z-[60] origin-left"
+          className="fixed top-0 left-0 right-0 h-[6px] bg-gradient-to-r from-electric-blue via-violet to-magenta z-[60] origin-left"
           style={{
             scaleX,
-            boxShadow: '0 0 20px rgba(0, 212, 255, 0.6), 0 0 40px rgba(139, 92, 246, 0.4)'
+            boxShadow: '0 0 30px rgba(0, 212, 255, 0.8), 0 0 60px rgba(139, 92, 246, 0.6)'
+          }}
+          animate={{
+            scaleY: [1, 1.1, 1],
+          }}
+          transition={{
+            scaleY: {
+              duration: 2,
+              repeat: Infinity,
+              ease: 'easeInOut'
+            }
           }}
         />
         <motion.div
-          className="fixed top-0 left-0 right-0 h-[1px] dark:bg-white/10 bg-gray-300 z-[59]"
+          className="fixed top-0 left-0 right-0 h-[2px] dark:bg-white/20 bg-gray-400 z-[59]"
           initial={{ opacity: 0 }}
           animate={{ opacity: scrolled ? 1 : 0 }}
           transition={{ duration: 0.3 }}
@@ -87,7 +97,7 @@ function App() {
                 className="flex items-center gap-2"
                 whileHover={{ scale: 1.05 }}
               >
-                <img src="/sd-logo.png" alt="SD Logo" className="h-10 w-10" />
+                <img src="/sd-logo.png" alt="SD Logo" className="h-12 w-12 md:h-16 md:w-16" />
               </motion.a>
 
               <div className="hidden md:flex gap-8 items-center">

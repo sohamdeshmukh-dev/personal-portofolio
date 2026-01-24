@@ -26,7 +26,6 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: 'easeOut' }}
                 >
-                    <span className="dark:text-off-white text-gray-900">Hi, I'm </span>
                     <span className="text-gradient hover:opacity-90 transition-opacity">Soham Deshmukh</span>
                 </motion.h1>
 

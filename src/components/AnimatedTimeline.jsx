@@ -76,18 +76,18 @@ const TimelineEntry = ({ experience, isActive, index, isLeft }) => {
             transition={{ duration: 0.5 }}
         >
             {/* Desktop Layout - Alternating */}
-            <div className="hidden md:grid md:grid-cols-2 md:gap-8 items-center">
+            <div className="hidden md:grid md:grid-cols-2 md:gap-4 items-center">
                 {isLeft ? (
                     <>
                         {/* Content on Left */}
-                        <div className="pr-12">
+                        <div className="pr-4">
                             <ContentCard experience={experience} isActive={isActive} />
                         </div>
                         {/* Logo on Right */}
-                        <div className="pl-12">
+                        <div className="pl-4">
                             <LogoContainer
                                 logo={experience.logo}
-                                logoDark={experience.logoDark}
+                                logoLight={experience.logoLight}
                                 company={experience.company}
                                 isActive={isActive}
                             />
@@ -96,16 +96,16 @@ const TimelineEntry = ({ experience, isActive, index, isLeft }) => {
                 ) : (
                     <>
                         {/* Logo on Left */}
-                        <div className="pr-12">
+                        <div className="pr-4">
                             <LogoContainer
                                 logo={experience.logo}
-                                logoDark={experience.logoDark}
+                                logoLight={experience.logoLight}
                                 company={experience.company}
                                 isActive={isActive}
                             />
                         </div>
                         {/* Content on Right */}
-                        <div className="pl-12">
+                        <div className="pl-4">
                             <ContentCard experience={experience} isActive={isActive} />
                         </div>
                     </>
@@ -116,7 +116,7 @@ const TimelineEntry = ({ experience, isActive, index, isLeft }) => {
             <div className="md:hidden space-y-4">
                 <LogoContainer
                     logo={experience.logo}
-                    logoDark={experience.logoDark}
+                    logoLight={experience.logoLight}
                     company={experience.company}
                     isActive={isActive}
                 />
@@ -126,15 +126,15 @@ const TimelineEntry = ({ experience, isActive, index, isLeft }) => {
     );
 };
 
-const LogoContainer = ({ logo, logoDark, company, isActive }) => {
+const LogoContainer = ({ logo, logoLight, company, isActive }) => {
     const { isDark } = useTheme();
 
-    // Use dark logo variant if available and in dark mode, otherwise use regular logo
-    const currentLogo = (isDark && logoDark) ? logoDark : logo;
+    // Use white logo for dark mode, blue logo for light mode
+    const currentLogo = isDark ? logo : (logoLight || logo);
 
     return (
         <motion.div
-            className="glass-effect rounded-lg p-8 h-64 flex items-center justify-center group border transition-all"
+            className="glass-effect rounded-lg p-10 h-96 flex items-center justify-center group border transition-all"
             animate={{
                 scale: isActive ? 1 : 0.95,
             }}
@@ -151,7 +151,7 @@ const LogoContainer = ({ logo, logoDark, company, isActive }) => {
                 src={currentLogo}
                 alt={`${company} logo`}
                 className="max-h-full max-w-full object-contain transition-all duration-300"
-                style={{ maxHeight: '140px', maxWidth: '100%' }}
+                style={{ maxHeight: '250px', maxWidth: '100%' }}
                 initial={{ opacity: 0 }}
                 animate={{
                     opacity: isActive ? 1 : 0.6,
