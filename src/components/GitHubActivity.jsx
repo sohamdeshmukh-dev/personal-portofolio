@@ -1,8 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { GitHubCalendar } from 'react-github-calendar';
 
 const GitHubActivity = () => {
+    const [isDark, setIsDark] = useState(true);
+
+    useEffect(() => {
+        // Check initial theme
+        const checkTheme = () => {
+            setIsDark(document.documentElement.classList.contains('dark'));
+        };
+
+        checkTheme();
+
+        // Watch for theme changes
+        const observer = new MutationObserver(checkTheme);
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ['class']
+        });
+
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <motion.section
             id="activity"
@@ -14,10 +34,10 @@ const GitHubActivity = () => {
         >
             <div className="mb-6">
                 <h3 className="text-2xl md:text-3xl font-display font-bold dark:text-off-white text-gray-900 tracking-tight">
-                    Engineering Activity
+                    GitHub Activity:
                 </h3>
                 <p className="text-sm md:text-base dark:text-cool-gray text-gray-600 mt-2">
-                    Consistent development across personal projects, coursework, and production systems.
+                    Development from personal projects and coursework.
                 </p>
             </div>
 
@@ -27,7 +47,7 @@ const GitHubActivity = () => {
                     blockSize={12}
                     blockMargin={4}
                     fontSize={12}
-                    colorScheme="dark"
+                    colorScheme={isDark ? 'dark' : 'light'}
                     theme={{
                         dark: [
                             '#0a0a0a',  // empty - matches dark background
@@ -37,11 +57,11 @@ const GitHubActivity = () => {
                             '#16a34a',  // very high activity
                         ],
                         light: [
-                            '#f8fafc',  // empty - matches light background
-                            '#bfdbfe',  // low activity
-                            '#60a5fa',  // medium activity
-                            '#3b82f6',  // high activity
-                            '#1d4ed8',  // very high activity
+                            '#ebedf0',  // empty - light gray
+                            '#9be9a8',  // low activity - light green
+                            '#40c463',  // medium activity - medium green
+                            '#30a14e',  // high activity - darker green
+                            '#216e39',  // very high activity - darkest green
                         ]
                     }}
                     style={{
