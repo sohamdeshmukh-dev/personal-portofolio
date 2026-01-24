@@ -25,8 +25,8 @@ const Experience = () => {
             company: 'Lockheed Martin Global Inc.',
             location: 'King of Prussia, PA',
             description: 'Extended Operations & Rotary Missions Systems',
-            logo: lockheedLogo,
-            logoLight: lockheedLogoLight,
+            logo: lockheedLogoLight,
+            logoLight: lockheedLogo,
             achievements: [
                 'Collaborated with 4+ team members to build a Unity-based virtual tour app for a helicopter plant in Stratford, CT',
                 'Designed and developed a co-op portal for Drexel University, increasing operational efficiency by 25%',
