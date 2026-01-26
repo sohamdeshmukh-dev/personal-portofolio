@@ -147,17 +147,24 @@ const LogoContainer = ({ logo, logoLight, company, isActive }) => {
                 borderColor: isActive ? 'rgba(0, 212, 255, 0.2)' : 'rgba(255, 255, 255, 0.05)'
             }}
         >
-            <motion.img
-                src={currentLogo}
-                alt={`${company} logo`}
-                className="max-h-full max-w-full object-contain transition-all duration-300"
-                style={{ maxHeight: '250px', maxWidth: '100%' }}
-                initial={{ opacity: 0 }}
-                animate={{
-                    opacity: isActive ? 1 : 0.6,
-                }}
-                transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            />
+            {/* Fixed-size container to prevent layout shift */}
+            <div className="relative w-full h-full flex items-center justify-center">
+                <motion.img
+                    src={currentLogo}
+                    alt={`${company} logo`}
+                    className="max-h-full object-contain transition-all duration-300"
+                    style={{
+                        width: '80%',
+                        height: 'auto',
+                        maxHeight: '250px'
+                    }}
+                    initial={{ opacity: 0 }}
+                    animate={{
+                        opacity: isActive ? 1 : 0.6,
+                    }}
+                    transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                />
+            </div>
         </motion.div>
     );
 };
