@@ -30,7 +30,7 @@ const GitHubActivity = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             viewport={{ once: true }}
-            className="rounded-2xl glass-effect-strong p-6 md:p-8 mt-12"
+            className="relative rounded-2xl glass-effect-strong p-6 md:p-8 mt-0"
         >
             <div className="mb-6">
                 <h3 className="text-2xl md:text-3xl font-display font-bold dark:text-off-white text-gray-900 tracking-tight">

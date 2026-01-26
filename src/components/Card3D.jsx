@@ -33,9 +33,9 @@ const Card3D = ({ children, className = '', glowColor = 'blue' }) => {
     };
 
     return (
-        <div className="perspective-1000">
+        <div className="relative perspective-1000">
             <motion.div
-                className={`${className} transition-all duration-300`}
+                className={`${className} relative transition-all duration-300`}
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
                 animate={{

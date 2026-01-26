@@ -154,7 +154,10 @@ body {
 
   /* Optimize sections for mobile */
   section {
-    padding: 3rem 1rem !important;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   /* Better grid stacking */
@@ -172,7 +175,10 @@ body {
 
   /* Optimize sections for tablet */
   section {
-    padding: 4rem 2rem !important;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 
   /* Better grid layouts on tablet */
@@ -246,5 +252,27 @@ body {
 
   .github-activity::-webkit-scrollbar-thumb:hover {
     background: #22c55e;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 212, 255, 0.3) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(0, 212, 255, 0.3);
+    border-radius: 2px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 212, 255, 0.5);
   }
 }

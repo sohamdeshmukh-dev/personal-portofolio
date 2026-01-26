@@ -2,11 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import SectionHeader from '../components/SectionHeader';
 import Card3D from '../components/Card3D';
+import FlippableProjectCard from '../components/FlippableProjectCard';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import ecosnapLogo from '../assets/ecosnap-logo.jpg';
+import aslearnLogo from '../assets/aslearn-logo.png';
+import swiftfillaiLogo from '../assets/swiftfillai-logo.jpg';
 
 const ProjectCard = ({ title, date, description, achievements, techStack, githubUrl, demoUrl, delay = 0 }) => {
     return (
-        <Card3D className="glass-effect-strong rounded-lg p-6 h-full flex flex-col" glowColor="blue">
+        <Card3D className="glass-effect-strong rounded-lg p-6 h-[600px] flex flex-col" glowColor="blue">
             <div className="flex justify-between items-start mb-3">
                 <h3 className="text-2xl font-bold dark:text-off-white text-gray-900">{title}</h3>
                 <span className="dark:text-cool-gray text-gray-600 text-sm whitespace-nowrap ml-4">{date}</span>
@@ -14,21 +18,23 @@ const ProjectCard = ({ title, date, description, achievements, techStack, github
 
             <p className="dark:text-cool-gray text-gray-700 mb-4">{description}</p>
 
-            <ul className="space-y-2 mb-4 flex-1">
-                {achievements.map((achievement, index) => (
-                    <motion.li
-                        key={index}
-                        className="dark:text-off-white text-gray-800 flex items-start text-sm"
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ delay: delay + index * 0.1, duration: 0.4 }}
-                        viewport={{ once: true }}
-                    >
-                        <span className="text-electric-blue mr-2 flex-shrink-0">◦</span>
-                        <span>{achievement}</span>
-                    </motion.li>
-                ))}
-            </ul>
+            <div className="flex-1 overflow-hidden mb-4">
+                <ul className="space-y-2 max-h-[280px] overflow-y-auto scrollbar-thin">
+                    {achievements.map((achievement, index) => (
+                        <motion.li
+                            key={index}
+                            className="dark:text-off-white text-gray-800 flex items-start text-sm leading-relaxed"
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ delay: delay + index * 0.1, duration: 0.4 }}
+                            viewport={{ once: true }}
+                        >
+                            <span className="text-electric-blue mr-2 flex-shrink-0">◦</span>
+                            <span>{achievement}</span>
+                        </motion.li>
+                    ))}
+                </ul>
+            </div>
 
             <div className="flex flex-wrap gap-2 mb-4">
                 {techStack.map((tech, index) => (
@@ -133,7 +139,7 @@ const Projects = () => {
     ];
 
     return (
-        <section id="projects" className="py-20 px-6 relative">
+        <section id="projects" className="relative py-20 pb-64 px-6">
             <div ref={ref} className="max-w-6xl mx-auto">
                 <SectionHeader
                     title="Projects"
@@ -141,14 +147,22 @@ const Projects = () => {
                 />
 
                 <motion.div
-                    className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12"
+                    className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 auto-rows-fr items-stretch"
                     initial={{ opacity: 0 }}
                     animate={isInView ? { opacity: 1 } : {}}
                     transition={{ duration: 0.8 }}
                 >
-                    {projects.map((project, index) => (
-                        <ProjectCard key={index} {...project} delay={index * 0.2} />
-                    ))}
+                    {projects.map((project, index) => {
+                        if (project.title === 'EcoSnap') {
+                            return <FlippableProjectCard key={index} {...project} delay={index * 0.2} logo={ecosnapLogo} glowColor="green" />;
+                        } else if (project.title === 'ASLearn') {
+                            return <FlippableProjectCard key={index} {...project} delay={index * 0.2} logo={aslearnLogo} glowColor="blue" />;
+                        } else if (project.title === 'SwiftFillAI') {
+                            return <FlippableProjectCard key={index} {...project} delay={index * 0.2} logo={swiftfillaiLogo} glowColor="purple" />;
+                        } else {
+                            return <ProjectCard key={index} {...project} delay={index * 0.2} />;
+                        }
+                    })}
                 </motion.div>
             </div>
         </section>
