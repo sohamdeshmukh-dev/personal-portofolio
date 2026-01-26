@@ -40,10 +40,10 @@ const Certifications = () => {
     };
 
     return (
-        <section id="skills" className="relative pt-32 pb-32 px-6 mt-40 bg-white/[0.01]">
+        <section id="skills" className="relative pt-20 pb-32 px-6 bg-white/[0.01]">
             <div ref={ref} className="relative max-w-6xl mx-auto">
                 {/* Section Header - Block Level Container */}
-                <div className="relative mb-16">
+                <div className="relative mb-8">
                     <SectionHeader
                         title="Certifications & Skills"
                         subtitle="Continuous learning and technical expertise"

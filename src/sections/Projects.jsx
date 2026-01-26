@@ -7,6 +7,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import ecosnapLogo from '../assets/ecosnap-logo.jpg';
 import aslearnLogo from '../assets/aslearn-logo.png';
 import swiftfillaiLogo from '../assets/swiftfillai-logo.jpg';
+import stockstalkerLogo from '../assets/stockstalker-logo.png';
 
 const ProjectCard = ({ title, date, description, achievements, techStack, githubUrl, demoUrl, delay = 0 }) => {
     return (
@@ -139,7 +140,7 @@ const Projects = () => {
     ];
 
     return (
-        <section id="projects" className="relative py-20 pb-64 px-6">
+        <section id="projects" className="relative py-20 pb-32 px-6">
             <div ref={ref} className="max-w-6xl mx-auto">
                 <SectionHeader
                     title="Projects"
@@ -159,6 +160,8 @@ const Projects = () => {
                             return <FlippableProjectCard key={index} {...project} delay={index * 0.2} logo={aslearnLogo} glowColor="blue" />;
                         } else if (project.title === 'SwiftFillAI') {
                             return <FlippableProjectCard key={index} {...project} delay={index * 0.2} logo={swiftfillaiLogo} glowColor="purple" />;
+                        } else if (project.title === 'StockStalker') {
+                            return <FlippableProjectCard key={index} {...project} delay={index * 0.2} logo={stockstalkerLogo} glowColor="green" />;
                         } else {
                             return <ProjectCard key={index} {...project} delay={index * 0.2} />;
                         }

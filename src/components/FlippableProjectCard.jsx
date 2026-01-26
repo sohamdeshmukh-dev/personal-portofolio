@@ -115,10 +115,10 @@ const FlippableProjectCard = ({ title, date, description, achievements, techStac
                             <img
                                 src={logo}
                                 alt={`${title} Logo`}
-                                className="max-w-full max-h-[70%] w-auto h-auto object-contain rounded-lg"
+                                className="max-w-full max-h-full w-auto h-auto object-contain rounded-lg"
                                 style={{
-                                    maxWidth: '280px',
-                                    maxHeight: '280px'
+                                    maxWidth: '450px',
+                                    maxHeight: '450px'
                                 }}
                             />
                         </div>
