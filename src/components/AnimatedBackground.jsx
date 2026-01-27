@@ -6,7 +6,7 @@ import * as THREE from 'three';
 
 function ParticleField({ mousePosition, isDark }) {
     const mesh = useRef();
-    const particlesCount = 1500; // Reduced from 2000 for better performance
+    const particlesCount = 10000;
 
     const particles = useMemo(() => {
         const positions = new Float32Array(particlesCount * 3);
@@ -14,9 +14,9 @@ function ParticleField({ mousePosition, isDark }) {
         const sizes = new Float32Array(particlesCount);
 
         for (let i = 0; i < particlesCount; i++) {
-            positions[i * 3] = (Math.random() - 0.5) * 60;
-            positions[i * 3 + 1] = (Math.random() - 0.5) * 60;
-            positions[i * 3 + 2] = (Math.random() - 0.5) * 30;
+            positions[i * 2] = (Math.random() - 0.5) * 60;
+            positions[i * 2 + 1] = (Math.random() - 0.5) * 60;
+            positions[i * 2 + 2] = (Math.random() - 0.5) * 30;
 
             // Varied particle sizes
             sizes[i] = Math.random() * 0.15 + 0.05;
