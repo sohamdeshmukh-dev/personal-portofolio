@@ -6,7 +6,7 @@ import * as THREE from 'three';
 
 function ParticleField({ mousePosition, isDark }) {
     const mesh = useRef();
-    const particlesCount = 10000;
+    const particlesCount = 1500;
 
     const particles = useMemo(() => {
         const positions = new Float32Array(particlesCount * 3);
