@@ -1,19 +1,101 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
 
 const ThemeToggle = () => {
     const { theme, toggleTheme } = useTheme();
     const isDark = theme === 'dark';
+    const [ripples, setRipples] = useState([]);
+
+    const handleClick = (e) => {
+        // Create ripple effect
+        const timestamp = Date.now();
+        setRipples(prev => [...prev, { id: timestamp, theme: !isDark }]);
+
+        // Remove ripple after animation completes
+        setTimeout(() => {
+            setRipples(prev => prev.filter(r => r.id !== timestamp));
+        }, 1200);
+
+        toggleTheme();
+    };
 
     return (
         <motion.button
-            onClick={toggleTheme}
-            className="relative w-14 h-14 rounded-full glass-effect-strong flex items-center justify-center group overflow-hidden"
+            onClick={handleClick}
+            className="relative w-14 h-14 rounded-full glass-effect-strong flex items-center justify-center group overflow-visible"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
+            style={{ isolation: 'isolate' }}
         >
+            {/* Cascading wave ripples */}
+            <AnimatePresence>
+                {ripples.map((ripple) => (
+                    <React.Fragment key={ripple.id}>
+                        {/* First wave */}
+                        <motion.div
+                            className="absolute inset-0 rounded-full pointer-events-none"
+                            style={{
+                                border: `2px solid ${ripple.theme ? 'rgba(0, 212, 255, 0.6)' : 'rgba(251, 191, 36, 0.6)'}`,
+                                zIndex: -1,
+                            }}
+                            initial={{ scale: 0, opacity: 0.8 }}
+                            animate={{
+                                scale: [0, 8, 12],
+                                opacity: [0.8, 0.4, 0]
+                            }}
+                            exit={{ opacity: 0 }}
+                            transition={{
+                                duration: 1.0,
+                                ease: [0.4, 0.0, 0.2, 1],
+                                times: [0, 0.6, 1]
+                            }}
+                        />
+                        {/* Second wave */}
+                        <motion.div
+                            className="absolute inset-0 rounded-full pointer-events-none"
+                            style={{
+                                border: `2px solid ${ripple.theme ? 'rgba(0, 212, 255, 0.5)' : 'rgba(251, 191, 36, 0.5)'}`,
+                                zIndex: -1,
+                            }}
+                            initial={{ scale: 0, opacity: 0.6 }}
+                            animate={{
+                                scale: [0, 7, 11],
+                                opacity: [0.6, 0.3, 0]
+                            }}
+                            exit={{ opacity: 0 }}
+                            transition={{
+                                duration: 1.0,
+                                ease: [0.4, 0.0, 0.2, 1],
+                                delay: 0.1,
+                                times: [0, 0.6, 1]
+                            }}
+                        />
+                        {/* Third wave */}
+                        <motion.div
+                            className="absolute inset-0 rounded-full pointer-events-none"
+                            style={{
+                                border: `2px solid ${ripple.theme ? 'rgba(0, 212, 255, 0.4)' : 'rgba(251, 191, 36, 0.4)'}`,
+                                zIndex: -1,
+                            }}
+                            initial={{ scale: 0, opacity: 0.4 }}
+                            animate={{
+                                scale: [0, 6, 10],
+                                opacity: [0.4, 0.2, 0]
+                            }}
+                            exit={{ opacity: 0 }}
+                            transition={{
+                                duration: 1.0,
+                                ease: [0.4, 0.0, 0.2, 1],
+                                delay: 0.2,
+                                times: [0, 0.6, 1]
+                            }}
+                        />
+                    </React.Fragment>
+                ))}
+            </AnimatePresence>
+
             {/* Animated background glow */}
             <motion.div
                 className="absolute inset-0 rounded-full"
