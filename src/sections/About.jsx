@@ -78,7 +78,7 @@ const About = () => {
 
                     {/* Right Column: 3D Chess Knight */}
                     <motion.div
-                        className="w-full h-[400px] md:h-[500px] rounded-lg overflow-hidden glass-effect-strong"
+                        className="w-full h-[400px] md:h-[500px]"
                         initial={{ opacity: 0, x: 30 }}
                         animate={isInView ? { opacity: 1, x: 0 } : {}}
                         transition={{ duration: 0.8, delay: 0.4 }}

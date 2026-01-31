@@ -49,7 +49,7 @@ const KnightModel = () => {
     });
 
     return (
-        <group ref={groupRef} scale={3} position={[0, 0, 0]}>
+        <group ref={groupRef} scale={4} position={[0, 0, 0]}>
             <group ref={modelRef} />
         </group>
     );
@@ -66,6 +66,7 @@ const Loader = () => (
 // Main ChessKnight3D Component
 const ChessKnight3D = () => {
     const containerRef = useRef();
+    const controlsRef = useRef();
     const [isVisible, setIsVisible] = useState(true);
     const [isTabVisible, setIsTabVisible] = useState(true);
 
@@ -101,12 +102,33 @@ const ChessKnight3D = () => {
         };
     }, []);
 
+    // Double-click to reset camera position
+    useEffect(() => {
+        const handleDoubleClick = () => {
+            if (controlsRef.current) {
+                // Reset camera to default position
+                controlsRef.current.reset();
+            }
+        };
+
+        const container = containerRef.current;
+        if (container) {
+            container.addEventListener('dblclick', handleDoubleClick);
+        }
+
+        return () => {
+            if (container) {
+                container.removeEventListener('dblclick', handleDoubleClick);
+            }
+        };
+    }, []);
+
     const shouldRender = isVisible && isTabVisible;
 
     return (
         <div ref={containerRef} className="relative w-full h-full">
             <Canvas
-                camera={{ position: [6, 4, 6], fov: 45 }}
+                camera={{ position: [5, 3.5, 5], fov: 45 }}
                 style={{ background: 'transparent' }}
             >
                 {/* Lighting setup */}
@@ -124,12 +146,15 @@ const ChessKnight3D = () => {
 
                 {/* OrbitControls for user interaction */}
                 <OrbitControls
+                    ref={controlsRef}
                     enablePan={false}
-                    enableZoom={true}
-                    minDistance={4}
-                    maxDistance={12}
+                    enableZoom={false}
                     autoRotate={false}
                     autoRotateSpeed={0}
+                    minPolarAngle={0}
+                    maxPolarAngle={Math.PI}
+                    enableDamping={true}
+                    dampingFactor={0.05}
                 />
             </Canvas>
         </div>
