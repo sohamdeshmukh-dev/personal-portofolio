@@ -194,7 +194,7 @@ function App() {
         </main>
 
         {/* Footer */}
-        <footer className="py-8 px-6 border-t dark:border-white/5 border-gray-200 relative dark:bg-black/20 bg-white/50 backdrop-blur-sm">
+        <footer className="py-8 px-6 border-t dark:border-white/5 border-gray-200 relative dark:bg-black/80 bg-white/50 backdrop-blur-sm">
           <div className="max-w-7xl mx-auto text-center">
             <p className="dark:text-cool-gray text-gray-600 text-sm">
               © 2026 Soham Deshmukh. Built with React + Vite + Tailwind CSS + Framer Motion + Three.js.

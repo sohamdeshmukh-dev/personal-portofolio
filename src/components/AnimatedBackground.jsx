@@ -150,7 +150,7 @@ const AnimatedBackground = () => {
     const themeColors = getThemeColors();
 
     return (
-        <div className="fixed inset-0 -z-10 opacity-70">
+        <div className="fixed inset-0 -z-10 dark:opacity-30 opacity-70">
             <Canvas camera={{ position: [0, 0, 12], fov: 60 }} gl={{ antialias: true }}>
                 {/* Theme-aware canvas background */}
                 <color attach="background" args={[themeColors.canvasBackground]} />
