@@ -44,7 +44,6 @@ const Education = () => {
             <div className="max-w-5xl mx-auto">
                 <SectionHeader
                     title="Education"
-                    subtitle="Building a strong foundation in computer science and mathematics"
                 />
 
                 <motion.div
