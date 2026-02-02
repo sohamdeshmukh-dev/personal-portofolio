@@ -11,7 +11,7 @@ const Experience = () => {
             date: 'Mar 2026 - Sep 2026',
             title: 'Software Developer Intern - MCC Backoffice Team',
             company: 'SAP America Inc.',
-            location: 'Newton Square, PA',
+            location: 'Newtown Square, PA',
             description: 'Incoming SAP STAR Program Intern',
             logo: sapLogo,
             achievements: [
