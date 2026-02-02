@@ -65,15 +65,6 @@ const About = () => {
                             <span className="text-electric-blue font-semibold"> quantitative development</span>.
                         </motion.p>
 
-                        <motion.p
-                            className="dark:text-cool-gray text-gray-600 text-base mt-6"
-                            initial={{ opacity: 0 }}
-                            animate={isInView ? { opacity: 1 } : {}}
-                            transition={{ duration: 0.6, delay: 1 }}
-                        >
-                            <span className="font-semibold dark:text-off-white text-gray-900">Extracurriculars:</span> CS Theory Reading Group,
-                            The Drexel Society of Artificial Intelligence, Business Analytics Club
-                        </motion.p>
                     </motion.div>
 
                     {/* Right Column: 3D Chess Knight */}

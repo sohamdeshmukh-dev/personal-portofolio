@@ -135,10 +135,10 @@ function FloatingShape({ position, rotation, color, scale, speed, geometryType, 
                 roughness={0.1}
                 metalness={0.9}
                 transparent
-                opacity={isDark ? 0.3 : 0.15}
+                opacity={isDark ? 0.5 : 0.2}
                 wireframe
                 emissive={color}
-                emissiveIntensity={isDark ? 0.4 : 0.1}
+                emissiveIntensity={isDark ? 0.8 : 0.2}
             />
         </mesh>
     );
@@ -160,10 +160,10 @@ const AnimatedBackground = () => {
 
                 {/* Enhanced lighting */}
                 <ambientLight intensity={themeColors.ambientLight} />
-                <pointLight position={[10, 10, 10]} intensity={1.2} color="#00d4ff" />
-                <pointLight position={[-10, -10, -10]} intensity={0.8} color="#8b5cf6" />
-                <pointLight position={[0, 15, 5]} intensity={0.6} color="#14b8a6" />
-                <pointLight position={[15, -5, -5]} intensity={0.5} color="#ec4899" />
+                <pointLight position={[10, 10, 10]} intensity={1.8} color="#00d4ff" />
+                <pointLight position={[-10, -10, -10]} intensity={1.2} color="#8b5cf6" />
+                <pointLight position={[0, 15, 5]} intensity={1.0} color="#14b8a6" />
+                <pointLight position={[15, -5, -5]} intensity={0.8} color="#ec4899" />
 
                 <ParticleField mousePosition={mousePosition} isDark={isDark} />
 

@@ -133,6 +133,89 @@ const Education = () => {
                                 </div>
                             </motion.div>
 
+                            {/* Honors & Awards and Extracurriculars - Side by Side */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                {/* Honors & Awards */}
+                                <motion.div
+                                    className="glass-effect-strong rounded-lg p-6"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.5, delay: 0.25 }}
+                                    viewport={{ once: true }}
+                                >
+                                    <h4 className="text-lg font-display font-semibold dark:text-off-white text-gray-900 mb-4">
+                                        Honors & Awards
+                                    </h4>
+                                    <div className="space-y-2">
+                                        <motion.div
+                                            className="flex items-start text-sm dark:text-off-white/90 text-gray-800"
+                                            initial={{ opacity: 0, x: -10 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            transition={{ delay: 0.05, duration: 0.3 }}
+                                            viewport={{ once: true }}
+                                        >
+                                            <span className="text-electric-blue mr-2 flex-shrink-0">◦</span>
+                                            <span>A.J. Drexel Scholarship</span>
+                                        </motion.div>
+                                        <motion.div
+                                            className="flex items-start text-sm dark:text-off-white/90 text-gray-800"
+                                            initial={{ opacity: 0, x: -10 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            transition={{ delay: 0.1, duration: 0.3 }}
+                                            viewport={{ once: true }}
+                                        >
+                                            <span className="text-electric-blue mr-2 flex-shrink-0">◦</span>
+                                            <span>Dean's List</span>
+                                        </motion.div>
+                                    </div>
+                                </motion.div>
+
+                                {/* Extracurriculars */}
+                                <motion.div
+                                    className="glass-effect-strong rounded-lg p-6"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.5, delay: 0.28 }}
+                                    viewport={{ once: true }}
+                                >
+                                    <h4 className="text-lg font-display font-semibold dark:text-off-white text-gray-900 mb-4">
+                                        Extracurriculars
+                                    </h4>
+                                    <div className="space-y-2">
+                                        <motion.div
+                                            className="flex items-start text-sm dark:text-off-white/90 text-gray-800"
+                                            initial={{ opacity: 0, x: -10 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            transition={{ delay: 0.05, duration: 0.3 }}
+                                            viewport={{ once: true }}
+                                        >
+                                            <span className="text-electric-blue mr-2 flex-shrink-0">◦</span>
+                                            <span>CS Theory Reading Group</span>
+                                        </motion.div>
+                                        <motion.div
+                                            className="flex items-start text-sm dark:text-off-white/90 text-gray-800"
+                                            initial={{ opacity: 0, x: -10 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            transition={{ delay: 0.1, duration: 0.3 }}
+                                            viewport={{ once: true }}
+                                        >
+                                            <span className="text-electric-blue mr-2 flex-shrink-0">◦</span>
+                                            <span>The Drexel Society of Artificial Intelligence</span>
+                                        </motion.div>
+                                        <motion.div
+                                            className="flex items-start text-sm dark:text-off-white/90 text-gray-800"
+                                            initial={{ opacity: 0, x: -10 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            transition={{ delay: 0.15, duration: 0.3 }}
+                                            viewport={{ once: true }}
+                                        >
+                                            <span className="text-electric-blue mr-2 flex-shrink-0">◦</span>
+                                            <span>Business Analytics Club</span>
+                                        </motion.div>
+                                    </div>
+                                </motion.div>
+                            </div>
+
                             {/* Tags */}
                             <motion.div
                                 className="flex flex-wrap gap-2"

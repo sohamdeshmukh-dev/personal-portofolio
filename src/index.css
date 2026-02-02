@@ -106,7 +106,7 @@ body {
 }
 
 .dark body {
-  background: linear-gradient(135deg, #000000 0%, #000000 50%, #000000 100%);
+  background: linear-gradient(135deg, #000000 0%, #010101 50%, #000000 100%);
   background-attachment: fixed;
 }
 
