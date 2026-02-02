@@ -26,7 +26,7 @@ const AnimatedTimeline = ({ experiences }) => {
             {/* Animated Timeline Line - Centered */}
             <div className="absolute left-1/2 -ml-0.5 top-0 bottom-0 w-0.5 dark:bg-white/10 bg-gray-300 hidden md:block">
                 <motion.div
-                    className="absolute top-0 left-0 w-full bg-gradient-to-b from-electric-blue via-violet to-teal"
+                    className="absolute top-0 left-0 w-full bg-electric-blue"
                     style={{
                         height: useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
                     }}
@@ -140,11 +140,11 @@ const LogoContainer = ({ logo, logoLight, company, isActive }) => {
             }}
             whileHover={{
                 scale: 1.02,
-                boxShadow: '0 0 30px rgba(0, 212, 255, 0.15)'
+                boxShadow: '0 0 30px rgba(0, 68, 102, 0.15)'
             }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
             style={{
-                borderColor: isActive ? 'rgba(0, 212, 255, 0.2)' : 'rgba(255, 255, 255, 0.05)'
+                borderColor: isActive ? 'rgba(0, 68, 102, 0.2)' : 'rgba(255, 255, 255, 0.05)'
             }}
         >
             {/* Fixed-size container to prevent layout shift */}
@@ -196,11 +196,11 @@ const ContentCard = ({ experience, isActive }) => {
                 }}
                 whileHover={{
                     scale: 1.02,
-                    boxShadow: '0 0 30px rgba(0, 212, 255, 0.2)'
+                    boxShadow: '0 0 30px rgba(0, 68, 102, 0.2)'
                 }}
                 transition={{ duration: 0.3 }}
                 style={{
-                    borderColor: isActive ? 'rgba(0, 212, 255, 0.3)' : 'rgba(255, 255, 255, 0.08)'
+                    borderColor: isActive ? 'rgba(0, 68, 102, 0.3)' : 'rgba(255, 255, 255, 0.08)'
                 }}
             >
                 <h3 className="text-xl md:text-2xl font-bold dark:text-off-white text-gray-900 mb-1">

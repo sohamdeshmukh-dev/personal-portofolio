@@ -49,10 +49,10 @@ function App() {
       <div className="min-h-screen relative dark:text-off-white text-gray-900 selection:bg-electric-blue selection:text-white transition-colors duration-300">
         {/* Enhanced Scroll Progress Bar */}
         <motion.div
-          className="fixed top-0 left-0 right-0 h-[6px] bg-gradient-to-r from-electric-blue via-violet to-magenta z-[60] origin-left"
+          className="fixed top-0 left-0 right-0 h-[6px] bg-[#004466] z-[60] origin-left"
           style={{
             scaleX,
-            boxShadow: '0 0 30px rgba(0, 212, 255, 0.8), 0 0 60px rgba(139, 92, 246, 0.6)'
+            boxShadow: '0 0 30px rgba(0, 68, 102, 0.8), 0 0 60px rgba(0, 68, 102, 0.6)'
           }}
           animate={{
             scaleY: [1, 1.1, 1],
@@ -78,8 +78,8 @@ function App() {
         {/* Additional Ambient Gradients */}
         <div className="fixed inset-0 -z-5 pointer-events-none overflow-hidden">
           <GradientBlob color="blue" size={800} top="-10%" left="-10%" delay={0} />
-          <GradientBlob color="violet" size={600} top="40%" left="80%" delay={2} />
-          <GradientBlob color="teal" size={700} top="80%" left="10%" delay={4} />
+          <GradientBlob color="blue" size={600} top="40%" left="80%" delay={2} />
+          <GradientBlob color="blue" size={700} top="80%" left="10%" delay={4} />
         </div>
 
         {/* Navigation */}
@@ -108,15 +108,15 @@ function App() {
                       key={item}
                       href={`#${item.toLowerCase()}`}
                       className={`text-sm font-medium transition-colors duration-200 relative group ${isActive
-                        ? 'text-electric-blue'
-                        : 'dark:text-off-white/80 text-gray-700 hover:text-electric-blue'
+                        ? 'text-[#004466]'
+                        : 'dark:text-off-white/80 text-gray-700 hover:text-[#004466]'
                         }`}
                       initial={{ opacity: 0, y: -20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.1, duration: 0.4 }}
                     >
                       {item}
-                      <span className={`absolute -bottom-1 left-0 h-0.5 bg-electric-blue transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                      <span className={`absolute -bottom-1 left-0 h-0.5 bg-[#004466] transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'
                         }`}></span>
                     </motion.a>
                   );
@@ -166,8 +166,8 @@ function App() {
                       key={item}
                       href={`#${item.toLowerCase()}`}
                       className={`block px-4 py-3 rounded-lg transition-colors ${isActive
-                        ? 'bg-electric-blue/10 text-electric-blue border border-electric-blue/30'
-                        : 'dark:text-off-white/80 text-gray-700 hover:bg-electric-blue/5'
+                        ? 'bg-[#004466]/10 text-[#004466] border border-[#004466]/30'
+                        : 'dark:text-off-white/80 text-gray-700 hover:bg-[#004466]/5'
                         }`}
                       onClick={() => setMobileMenuOpen(false)}
                     >

@@ -19,7 +19,7 @@ export default {
         'deep-black': '#000000',
         'true-black': '#0a0a0a',
         'midnight-blue': '#0f0f0f',
-        'electric-blue': '#00d4ff',
+        'electric-blue': '#004466',
         'violet': '#8b5cf6',
         'teal': '#14b8a6',
         'magenta': '#ec4899',
