@@ -76,7 +76,7 @@ function App() {
         <AnimatedBackground />
 
         {/* Additional Ambient Gradients */}
-        <div className="fixed inset-0 -z-5 pointer-events-none overflow-hidden">
+        <div className="fixed inset-0 -z-5 pointer-events-none">
           <GradientBlob color="blue" size={800} top="-10%" left="-10%" delay={0} />
           <GradientBlob color="blue" size={600} top="40%" left="80%" delay={2} />
           <GradientBlob color="blue" size={700} top="80%" left="10%" delay={4} />

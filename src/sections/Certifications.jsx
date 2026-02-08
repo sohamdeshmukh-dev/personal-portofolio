@@ -2,22 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import SectionHeader from '../components/SectionHeader';
 import GitHubActivity from '../components/GitHubActivity';
+import OrbitalSkillsGrid from '../components/OrbitalSkillsGrid';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-
-const SkillBadge = ({ skill, delay = 0 }) => {
-    return (
-        <motion.span
-            className="px-4 py-2 dark:bg-white/5 bg-gray-200 border dark:border-white/10 border-gray-300 rounded-lg dark:text-off-white text-gray-900 text-sm font-medium hover:bg-electric-blue/10 hover:border-electric-blue/30 transition-colors"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ scale: 1.05 }}
-            transition={{ delay, duration: 0.3 }}
-            viewport={{ once: true }}
-        >
-            {skill}
-        </motion.span>
-    );
-};
 
 const Certifications = () => {
     const { ref, isInView } = useScrollAnimation();
@@ -40,10 +26,10 @@ const Certifications = () => {
     };
 
     return (
-        <section id="skills" className="relative pt-20 pb-32 px-6 bg-white/[0.01]">
-            <div ref={ref} className="relative max-w-6xl mx-auto">
+        <section id="skills" className="relative pt-20 pb-32 px-6 bg-white/[0.01] overflow-visible">
+            <div ref={ref} className="relative w-full mx-auto overflow-visible">
                 {/* Section Header - Block Level Container */}
-                <div className="relative mb-8">
+                <div className="relative mb-8 max-w-7xl mx-auto">
                     <SectionHeader
                         title="Certifications & Skills"
                         subtitle="Continuous learning and technical expertise"
@@ -51,7 +37,7 @@ const Certifications = () => {
                 </div>
 
                 {/* Certifications Container */}
-                <div className="relative mb-20">
+                <div className="relative mb-20 max-w-7xl mx-auto">
                     <h3 className="text-2xl md:text-3xl font-bold dark:text-off-white text-gray-900 mb-8">
                         Certifications
                     </h3>
@@ -76,33 +62,14 @@ const Certifications = () => {
                     </div>
                 </div>
 
-                {/* Skills Container */}
-                <div className="relative mb-20">
-                    <h3 className="text-2xl md:text-3xl font-bold dark:text-off-white text-gray-900 mb-8">
-                        Technical Skills
-                    </h3>
-                    <div className="space-y-10">
-                        {Object.entries(skillCategories).map(([category, skills], catIndex) => (
-                            <div key={catIndex} className="space-y-4">
-                                <h4 className="text-lg md:text-xl font-semibold text-violet mb-5">
-                                    {category}
-                                </h4>
-                                <div className="flex flex-wrap gap-3">
-                                    {skills.map((skill, skillIndex) => (
-                                        <SkillBadge
-                                            key={skillIndex}
-                                            skill={skill}
-                                            delay={isInView ? skillIndex * 0.05 : 0}
-                                        />
-                                    ))}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                {/* Technical Skills - 4 Quadrant Layout */}
+                <div className="relative mb-20 overflow-visible">
+                    {/* Orbital Skills Grid */}
+                    <OrbitalSkillsGrid skillCategories={skillCategories} />
                 </div>
 
                 {/* GitHub Activity Container */}
-                <div className="relative">
+                <div className="relative max-w-7xl mx-auto">
                     <GitHubActivity />
                 </div>
             </div>
