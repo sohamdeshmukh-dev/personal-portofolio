@@ -35,9 +35,8 @@ function OrbitingSkillLabel({ skill, radius, initialAngle, orbitSpeed, color }) 
                 }}
             >
                 <div
+                    className="skill-orbital-label"
                     style={{
-                        background: 'rgba(255, 255, 255, 0.95)',
-                        color: '#1a1a2e',
                         padding: '6px 14px',
                         borderRadius: '20px',
                         fontSize: '13px',
@@ -45,7 +44,6 @@ function OrbitingSkillLabel({ skill, radius, initialAngle, orbitSpeed, color }) 
                         fontFamily: 'Inter, system-ui, sans-serif',
                         whiteSpace: 'nowrap',
                         boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
-                        border: '1px solid rgba(0,0,0,0.08)',
                     }}
                 >
                     {skill}

@@ -114,6 +114,19 @@ body {
   background-attachment: fixed;
 }
 
+/* Skill Orbital Labels - Theme Aware */
+.skill-orbital-label {
+  background: rgba(255, 255, 255, 0.95);
+  color: #000000;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dark .skill-orbital-label {
+  background: rgba(0, 0, 0, 0.95);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 /* Mobile Optimization */
 @media (max-width: 768px) {
   body {
