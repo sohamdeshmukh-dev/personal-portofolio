@@ -21,20 +21,20 @@ const Hero = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, ease: 'easeOut' }}
                         >
-                            <span className="text-gradient cursor-pointer hover:brightness-150 transition-all duration-300 inline-block hover:scale-105 hover:drop-shadow-[0_0_30px_rgba(0,212,255,0.8)] whitespace-nowrap">Soham Deshmukh</span>
+                            <span className="text-gradient dark:text-white cursor-pointer hover:brightness-150 transition-all duration-300 inline-block hover:scale-105 hover:drop-shadow-[0_0_30px_rgba(0,212,255,0.8)] whitespace-nowrap">Soham Deshmukh</span>
                         </motion.h1>
 
                         <motion.p
-                            className="text-xl md:text-2xl dark:text-cool-gray text-gray-600 mb-2 font-light"
+                            className="text-xl md:text-2xl dark:text-white text-gray-600 mb-2 font-light"
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
                         >
-                            SAP | Computer Science Student @ Drexel University
+                            SAP | Computer Science @ Drexel University
                         </motion.p>
 
                         <motion.p
-                            className="text-xl md:text-2xl dark:text-cool-gray/80 text-gray-500 mb-2 font-light"
+                            className="text-xl md:text-2xl dark:text-white text-gray-500 mb-2 font-light"
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
@@ -43,7 +43,7 @@ const Hero = () => {
                         </motion.p>
 
                         <motion.p
-                            className="text-lg md:text-xl dark:text-cool-gray/70 text-gray-400 mb-8 font-light"
+                            className="text-lg md:text-xl dark:text-white text-gray-400 mb-8 font-light"
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.35, ease: 'easeOut' }}

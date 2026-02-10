@@ -205,6 +205,10 @@ body {
     color: #004466;
   }
 
+  .dark .text-gradient {
+    color: #ffffff !important;
+  }
+
   .text-gradient-alt {
     color: #004466;
   }

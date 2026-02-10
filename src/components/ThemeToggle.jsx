@@ -128,7 +128,7 @@ const ThemeToggle = () => {
 
             {/* Moon Icon */}
             <motion.svg
-                className="absolute w-6 h-6 text-electric-blue"
+                className="absolute w-6 h-6 text-white"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"

@@ -97,7 +97,7 @@ function App() {
                 className="flex items-center gap-2"
                 whileHover={{ scale: 1.05 }}
               >
-                <img src="/sd-logo.png" alt="SD Logo" className="h-12 w-12 md:h-16 md:w-16" />
+                <img src="/sd-logo.png" alt="SD Logo" className="h-14 w-14 md:h-20 md:w-20" />
               </motion.a>
 
               <div className="hidden md:flex gap-8 items-center">
@@ -107,7 +107,7 @@ function App() {
                     <motion.a
                       key={item}
                       href={`#${item.toLowerCase()}`}
-                      className={`text-sm font-medium transition-colors duration-200 relative group ${isActive
+                      className={`text-base font-medium transition-colors duration-200 relative group ${isActive
                         ? 'text-[#004466]'
                         : 'dark:text-off-white/80 text-gray-700 hover:text-[#004466]'
                         }`}
