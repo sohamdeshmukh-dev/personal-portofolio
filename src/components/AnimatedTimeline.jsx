@@ -181,8 +181,8 @@ const ContentCard = ({ experience, isActive }) => {
                 transition={{ duration: 0.3 }}
             >
                 <span className={`text-sm md:text-base font-semibold px-4 py-2 rounded-full ${isActive
-                    ? 'text-electric-blue bg-electric-blue/10 border border-electric-blue/30'
-                    : 'text-gray-400 bg-gray-400/5 border border-gray-400/20'
+                    ? 'dark:text-white text-electric-blue bg-electric-blue/10 border border-electric-blue/30'
+                    : 'dark:text-white/60 text-gray-400 bg-gray-400/5 border border-gray-400/20'
                     }`}>
                     {experience.date}
                 </span>

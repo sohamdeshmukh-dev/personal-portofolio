@@ -59,7 +59,7 @@ const FlippableProjectCard = ({ title, date, description, achievements, techStac
                             {techStack.map((tech, index) => (
                                 <motion.span
                                     key={index}
-                                    className="px-3 py-1 text-xs font-medium bg-electric-blue/10 text-electric-blue rounded-full border border-electric-blue/20 hover:bg-electric-blue/20 hover:scale-110 transition-all"
+                                    className="px-3 py-1 text-xs font-medium bg-electric-blue/10 dark:text-white text-electric-blue rounded-full border border-electric-blue/20 hover:bg-electric-blue/20 hover:scale-110 transition-all"
                                     whileHover={{ scale: 1.1 }}
                                 >
                                     {tech}
@@ -73,7 +73,7 @@ const FlippableProjectCard = ({ title, date, description, achievements, techStac
                                     href={githubUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-electric-blue hover:text-violet transition-colors duration-200 text-sm font-medium"
+                                    className="dark:text-white text-electric-blue hover:text-violet transition-colors duration-200 text-sm font-medium"
                                     whileHover={{ scale: 1.05 }}
                                     onClick={(e) => e.stopPropagation()}
                                 >
@@ -85,7 +85,7 @@ const FlippableProjectCard = ({ title, date, description, achievements, techStac
                                     href={demoUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-electric-blue hover:text-violet transition-colors duration-200 text-sm font-medium"
+                                    className="dark:text-white text-electric-blue hover:text-violet transition-colors duration-200 text-sm font-medium"
                                     whileHover={{ scale: 1.05 }}
                                     onClick={(e) => e.stopPropagation()}
                                 >
