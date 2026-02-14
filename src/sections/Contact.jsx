@@ -94,7 +94,7 @@ const Contact = () => {
                     viewport={{ once: true }}
                 >
                     <p className="dark:text-cool-gray text-gray-600">
-                        Based in Philadelphia, PA & Chester Springs, PA
+                        Based in Philadelphia, PA
                     </p>
                 </motion.div>
             </div>
