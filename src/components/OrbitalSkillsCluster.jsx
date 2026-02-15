@@ -214,7 +214,7 @@ const OrbitalSkillsCluster = ({ skills, category, color = '#4a90d9', rotationSpe
                 className="relative w-full h-[400px] md:h-[500px] lg:h-[550px] overflow-visible"
                 style={{
                     minWidth: 'min(100vw, 700px)',
-                    margin: '0 auto'
+                    margin: '30px auto 0'
                 }}
             >
                 <Canvas
