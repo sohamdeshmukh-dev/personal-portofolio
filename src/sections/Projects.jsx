@@ -5,7 +5,7 @@ import Card3D from '../components/Card3D';
 import FlippableProjectCard from '../components/FlippableProjectCard';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import ecosnapLogo from '../assets/ecosnap-logo.jpg';
-import aslearnLogo from '../assets/aslearn-logo.png';
+import pulseLogo from '../assets/pulse-logo.png';
 import swiftfillaiLogo from '../assets/swiftfillai-logo.jpg';
 import stockstalkerLogo from '../assets/stockstalker-logo.png';
 
@@ -124,18 +124,18 @@ const Projects = () => {
             demoUrl: null
         },
         {
-            title: 'ASLearn',
-            date: 'Mar 2025',
-            description: 'Philly Codefest',
+            title: 'PULSE',
+            date: 'Feb 2026',
+            description: 'Cancer Research | Deloitte & Lebow Datathon',
             achievements: [
-                'Built an interactive ASL learning web app using React, OpenCV2, and YOLO for real-time sign recognition',
-                'Implemented computer vision feedback, improving sign accuracy by 45% during testing',
-                'Styled an intuitive UI to ensure accessibility, leading to a 35% increase in session duration',
-                'Leveraged AI and computer vision to create an engaging, feedback-driven learning experience'
+                'Presented research and ROI framework to Deloitte industry judges, won 1st place at the Deloitte Datathon',
+                'Built a lung cancer ROI engine in Python with 50k+ records, projects 8.4× return in underserved communities',
+                'Designed an interactive dashboard enabling neighborhood-level decision support for targeted screening',
+                'Analyzed cross-city data lung cancer screening impact, estimating lives saved from a 57% survival improvement'
             ],
-            techStack: ['React', 'OpenCV2', 'YOLO', 'Python'],
-            githubUrl: 'https://github.com/ssd333',
-            demoUrl: null
+            techStack: ['Python', 'Pandas', 'Plotly', 'React', 'Vite', 'Data Analytics'],
+            githubUrl: 'https://github.com/Himasai10/datathon-lung-cancer',
+            demoUrl: 'https://datathon-lung-cancer.vercel.app/'
         }
     ];
 
@@ -156,8 +156,8 @@ const Projects = () => {
                     {projects.map((project, index) => {
                         if (project.title === 'EcoSnap') {
                             return <FlippableProjectCard key={index} {...project} delay={index * 0.2} logo={ecosnapLogo} glowColor="green" />;
-                        } else if (project.title === 'ASLearn') {
-                            return <FlippableProjectCard key={index} {...project} delay={index * 0.2} logo={aslearnLogo} glowColor="blue" />;
+                        } else if (project.title === 'PULSE') {
+                            return <FlippableProjectCard key={index} {...project} delay={index * 0.2} logo={pulseLogo} glowColor="blue" />;
                         } else if (project.title === 'SwiftFillAI') {
                             return <FlippableProjectCard key={index} {...project} delay={index * 0.2} logo={swiftfillaiLogo} glowColor="purple" />;
                         } else if (project.title === 'StockStalker') {
