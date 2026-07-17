@@ -9,10 +9,11 @@ const Certifications = () => {
     const { ref, isInView } = useScrollAnimation();
 
     const certifications = [
+        { name: 'Generative AI Developer', issuer: 'SAP' },
         { name: 'AWS Certified Machine Learning', issuer: 'SkillSoft' },
-        { name: 'Git & GitHub: Introduction', issuer: 'LinkedIn Learning' },
-        { name: 'OpenAI API', issuer: 'LinkedIn Learning' },
-        { name: 'R Programming', issuer: 'LinkedIn Learning' },
+        { name: 'Git & GitHub: Introduction', issuer: 'SkillSoft' },
+        { name: 'OpenAI API', issuer: 'SkillSoft' },
+        { name: 'R Programming', issuer: 'SkillSoft' },
         { name: 'SQL Essential Training', issuer: 'LinkedIn Learning' },
         { name: 'Top Skills for Quantitative Analysts', issuer: 'LinkedIn Learning' },
         { name: 'Generative AI Fundamentals', issuer: 'Databricks' }
@@ -20,27 +21,23 @@ const Certifications = () => {
 
     const skillCategories = {
         'Languages': ['Python', 'Java', 'C', 'Racket', 'SQL', 'R', 'HTML', 'CSS', 'JavaScript', 'TypeScript', 'Bash', 'Swift', 'Dart', 'VBA'],
-        'Frameworks & Tools': ['Git', 'React', 'Unity', 'Flutter', 'Drupal', 'WordPress', 'Jira', 'SAP BTP', 'Google Gemini', 'PostgreSQL', 'LaTeX', 'Docker', 'AWS'],
+        'Frameworks & Tools': ['Git', 'React', 'Unity', 'Flutter', 'Drupal', 'WordPress', 'Jira', 'SAPUI5', 'SAP Fiori', 'SAP BTP', 'Google Gemini', 'PostgreSQL', 'LaTeX', 'Docker', 'AWS'],
         'AI & Data Analytics': ['Generative AI', 'Quantitative Analytics', 'Pandas', 'NumPy', 'Scikit-learn', 'OpenCV2', 'YOLO', 'TensorFlow', 'PyTorch', 'Matplotlib', '2D→3D Modeling', 'AR Development'],
         'Other Technical Skills': ['Agile Development', 'API Integration', 'Data Visualization', 'UI/UX Design', 'Version Control', 'Cloud Deployment']
     };
 
     return (
-        <section id="skills" className="relative pt-20 pb-32 px-6 bg-white/[0.01] overflow-visible">
+        <section id="skills" className="relative pt-12 pb-20 px-6 overflow-visible">
             <div ref={ref} className="relative w-full mx-auto overflow-visible">
                 {/* Section Header - Block Level Container */}
                 <div className="relative mb-8 max-w-7xl mx-auto">
                     <SectionHeader
                         title="Certifications & Skills"
-                        subtitle="Continuous learning and technical expertise"
                     />
                 </div>
 
                 {/* Certifications Container */}
                 <div className="relative mb-20 max-w-7xl mx-auto">
-                    <h3 className="text-2xl md:text-3xl font-bold dark:text-off-white text-gray-900 mb-8">
-                        Certifications
-                    </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 auto-rows-fr">
                         {certifications.map((cert, index) => (
                             <motion.div

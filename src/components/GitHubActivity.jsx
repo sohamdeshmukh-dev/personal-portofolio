@@ -24,24 +24,19 @@ const GitHubActivity = () => {
     }, []);
 
     return (
-        <motion.section
-            id="activity"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            viewport={{ once: true }}
-            className="relative rounded-2xl glass-effect-strong p-6 md:p-8 mt-0"
-        >
-            <div className="mb-6">
-                <h3 className="text-2xl md:text-3xl font-display font-bold dark:text-off-white text-gray-900 tracking-tight">
-                    GitHub Activity:
-                </h3>
-                <p className="text-sm md:text-base dark:text-cool-gray text-gray-600 mt-2">
-                    Development from personal projects and coursework.
-                </p>
-            </div>
+        <section id="activity">
+            <p className="font-display font-semibold text-[13px] tracking-[.18em] uppercase text-electric-blue mb-6 text-center">
+                GitHub Activity
+            </p>
 
-            <div className="overflow-x-auto github-activity pb-2">
+            <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                viewport={{ once: true }}
+                className="relative rounded-2xl glass-effect-strong p-6 md:p-8 mt-0 w-fit max-w-full mx-auto"
+            >
+                <div className="overflow-x-auto github-activity pb-2">
                 <GitHubCalendar
                     username="sohamdeshmukh-dev"
                     blockSize={12}
@@ -68,8 +63,9 @@ const GitHubActivity = () => {
                         color: 'var(--text-secondary)',
                     }}
                 />
-            </div>
-        </motion.section>
+                </div>
+            </motion.div>
+        </section>
     );
 };
 

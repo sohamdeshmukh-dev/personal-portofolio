@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useEffect } from 'react';
 
 const ThemeContext = createContext();
 
@@ -10,50 +10,24 @@ export const useTheme = () => {
     return context;
 };
 
+// Permanent dark mode — no toggle, no persistence.
 export const ThemeProvider = ({ children }) => {
-    // Default to dark mode
-    const [theme, setTheme] = useState(() => {
-        const savedTheme = localStorage.getItem('theme');
-        return savedTheme || 'dark';
-    });
-
     useEffect(() => {
-        // Apply theme class to document root
-        const root = document.documentElement;
-        if (theme === 'dark') {
-            root.classList.add('dark');
-            root.classList.remove('light');
-        } else {
-            root.classList.remove('dark');
-            root.classList.add('light');
-        }
-
-        // Save to localStorage
-        localStorage.setItem('theme', theme);
-    }, [theme]);
-
-    const toggleTheme = () => {
-        setTheme(prevTheme => prevTheme === 'dark' ? 'light' : 'dark');
-    };
-
-    // Helper function to get theme-specific colors for Three.js
-    const getThemeColors = () => {
-        const isDark = theme === 'dark';
-        return {
-            canvasBackground: isDark ? '#020202' : '#f8fafc',
-            fogColor: isDark ? '#020202' : '#f8fafc',
-            particleOpacity: isDark ? 0.9 : 0.8,
-            shapeOpacity: isDark ? 0.3 : 0.25,
-            shapeEmissive: isDark ? 0.4 : 0.1,
-            ambientLight: isDark ? 0.6 : 0.7,
-        };
-    };
+        document.documentElement.classList.add('dark');
+        document.documentElement.classList.remove('light');
+    }, []);
 
     const value = {
-        theme,
-        toggleTheme,
-        isDark: theme === 'dark',
-        getThemeColors
+        theme: 'dark',
+        isDark: true,
+        getThemeColors: () => ({
+            canvasBackground: '#121212',
+            fogColor: '#121212',
+            particleOpacity: 0.9,
+            shapeOpacity: 0.3,
+            shapeEmissive: 0.4,
+            ambientLight: 0.6,
+        })
     };
 
     return (

@@ -16,17 +16,18 @@ const Education = () => {
         location: 'Philadelphia, PA',
         logo: drexelLogo,
         logoDark: drexelLogoDark,
+        concentrations: 'Algorithms and Theory & Artificial Intelligence',
+        minor: 'Econometrics and Data Analytics',
         coursework: [
             'Data Structures & Algorithms',
             'Systems Programming',
-            'Advanced Programming Tools and Techniques',
-            'Mathematical Foundations of Computer Science',
-            'Discrete Mathematics',
+            'Software Engineering',
+            'Advanced Programming Tools & Techniques',
             'Linear Algebra',
             'Calculus I–IV',
-            'Intro to Software Engineering and Development',
-            'Cryptography',
-            'AI-related coursework'
+            'Probability & Statistics',
+            'Discrete Mathematics',
+            'Cryptography'
         ],
         tags: [
             'Machine Learning',
@@ -40,7 +41,7 @@ const Education = () => {
     const currentLogo = (isDark && education.logoDark) ? education.logoDark : education.logo;
 
     return (
-        <section id="education" className="py-20 px-6 bg-white/[0.01] relative">
+        <section id="education" className="py-12 px-6 relative">
             <div className="max-w-5xl mx-auto">
                 <SectionHeader
                     title="Education"
@@ -92,7 +93,7 @@ const Education = () => {
                                 <p className="text-lg dark:text-cool-gray text-gray-600 mb-2">
                                     {education.degree}
                                 </p>
-                                <div className="flex flex-wrap gap-4 text-sm dark:text-off-white/80 text-gray-700">
+                                <div className="flex flex-wrap gap-4 text-sm dark:text-off-white/80 text-gray-700 mb-2">
                                     <span className="flex items-center gap-2">
                                         <span className="text-electric-blue">📅</span>
                                         {education.graduation}
@@ -102,6 +103,12 @@ const Education = () => {
                                         {education.location}
                                     </span>
                                 </div>
+                                <p className="text-sm dark:text-off-white/80 text-gray-700">
+                                    <span className="font-semibold">Concentrations:</span> {education.concentrations}
+                                </p>
+                                <p className="text-sm dark:text-off-white/80 text-gray-700">
+                                    <span className="font-semibold">Minor:</span> {education.minor}
+                                </p>
                             </motion.div>
 
                             {/* Coursework */}

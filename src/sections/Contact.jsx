@@ -1,47 +1,47 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import SectionHeader from '../components/SectionHeader';
+import BrandIcon from '../components/BrandIcon';
 
 const Contact = () => {
     const contactInfo = [
         {
             label: 'Email',
-            value: 'ssd333@drexel.edu',
-            href: 'mailto:ssd333@drexel.edu',
-            icon: '✉️'
+            value: 'sohamdeshmukh@gmail.com',
+            href: 'mailto:sohamdeshmukh@gmail.com',
+            icon: 'Email'
         },
         {
             label: 'Phone',
             value: '(484) 500-5972',
             href: 'tel:+14845005972',
-            icon: '📱'
+            icon: 'Phone'
         },
         {
             label: 'LinkedIn',
             value: 'linkedin.com/in/sohamsdeshmukh',
             href: 'https://www.linkedin.com/in/sohamsdeshmukh/',
-            icon: '💼'
+            icon: 'LinkedIn'
         },
         {
             label: 'GitHub',
             value: 'github.com/sohamdeshmukh-dev',
             href: 'https://github.com/sohamdeshmukh-dev',
-            icon: '💻'
+            icon: 'GitHub'
         },
         {
             label: 'HackerRank',
             value: 'hackerrank.com/profile/soham_deshmukh_1',
             href: 'https://www.hackerrank.com/profile/soham_deshmukh_1',
-            icon: '🏆'
+            icon: 'HackerRank'
         }
     ];
 
     return (
-        <section id="contact" className="py-20 px-6 relative">
+        <section id="contact" className="py-12 px-6 relative">
             <div className="max-w-4xl mx-auto">
                 <SectionHeader
                     title="Get In Touch"
-                    subtitle="Let's build something great together"
                 />
 
                 <motion.div
@@ -76,10 +76,10 @@ const Contact = () => {
                                 transition={{ delay: index * 0.1, duration: 0.4 }}
                                 viewport={{ once: true }}
                             >
-                                <span className="text-3xl">{contact.icon}</span>
-                                <div>
+                                <BrandIcon name={contact.icon} className="w-8 h-8" />
+                                <div className="min-w-0">
                                     <p className="dark:text-cool-gray text-gray-600 text-sm">{contact.label}</p>
-                                    <p className="dark:text-off-white text-gray-900 font-medium">{contact.value}</p>
+                                    <p className="dark:text-off-white text-gray-900 font-medium truncate">{contact.value}</p>
                                 </div>
                             </motion.a>
                         ))}
