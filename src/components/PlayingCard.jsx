@@ -59,8 +59,9 @@ const PlayingCard = ({ image, company, title, subtitle, achievements, interactiv
                 </div>
             </div>
 
-            <p className="font-display text-[11px] tracking-[.14em] text-off-white/40 uppercase">
-                {company} — hover to flip
+            <p className="font-display text-[11px] tracking-[.14em] uppercase">
+                <span className="text-electric-blue">{company}</span>
+                <span className="text-off-white/40"> — hover to flip</span>
             </p>
         </div>
     );

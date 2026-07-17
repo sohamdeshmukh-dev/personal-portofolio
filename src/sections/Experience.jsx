@@ -9,7 +9,7 @@ const experiences = [
         company: 'SAP',
         date: 'MAR 2026 — PRESENT',
         title: 'Software Developer Intern',
-        subtitle: 'SAP America — MCC Backoffice Team · Newtown Square, PA',
+        subtitle: 'MCC Backoffice Team · Newtown Square, PA',
         image: '/SAP-card.png',
         tilt: -4,
         achievements: [
@@ -24,7 +24,7 @@ const experiences = [
         company: 'Lockheed Martin',
         date: 'JUL — AUG 2023',
         title: 'IT Intern',
-        subtitle: 'Lockheed Martin — Enterprise Operations · King of Prussia, PA',
+        subtitle: 'Enterprise Operations · King of Prussia, PA',
         image: '/lockheed-card.png',
         tilt: 4,
         achievements: [
