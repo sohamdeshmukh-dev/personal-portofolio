@@ -9,7 +9,7 @@ const experiences = [
         company: 'SAP',
         date: 'MAR 2026 — PRESENT',
         title: 'Software Developer Intern',
-        subtitle: 'MCC Backoffice Team · Newtown Square, PA',
+        subtitle: 'MCC Backoffice · Newtown Square, PA',
         image: '/SAP-card.png',
         tilt: -4,
         achievements: [
