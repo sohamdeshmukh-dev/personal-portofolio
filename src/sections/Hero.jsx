@@ -15,11 +15,11 @@ const Hero = () => {
                 <div className="flex flex-col items-center text-center">
                     <motion.h1
                         className="font-display font-bold uppercase text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[0.95] text-off-white mb-8"
-                        initial={{ opacity: 0, y: 50 }}
+                        initial={{ opacity: 0, y: 16 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.1, ease: 'easeOut' }}
+                        transition={{ duration: 0.35, delay: 0.1, ease: 'easeOut' }}
                     >
-                        Soham Deshmukh
+                        <span className="hero-name-typewriter">Soham Deshmukh</span>
                     </motion.h1>
 
                     <motion.p

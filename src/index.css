@@ -46,6 +46,26 @@ body {
   color: var(--text-primary);
 }
 
+/* Reveals the hero name one character at a time whenever the page loads. */
+.hero-name-typewriter {
+  display: inline-block;
+  clip-path: inset(0 100% 0 0);
+  animation: hero-name-type 1s steps(14, end) 0.2s forwards;
+}
+
+@keyframes hero-name-type {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-name-typewriter {
+    animation: none;
+    clip-path: none;
+  }
+}
+
 /* Skill Orbital Labels - Theme Aware */
 .skill-orbital-label {
   background: rgba(255, 255, 255, 0.95);
