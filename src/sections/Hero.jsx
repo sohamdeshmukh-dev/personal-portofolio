@@ -40,22 +40,6 @@ const Hero = () => {
                         SAP | CS @ Drexel
                     </motion.p>
 
-                    {/* Profile Picture */}
-                    <motion.div
-                        className="mb-10"
-                        initial={{ opacity: 0, scale: 0.5 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
-                    >
-                        <motion.img
-                            src="/profile.png"
-                            alt="Soham Deshmukh"
-                            className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-card-navy shadow-lg shadow-card-navy/30"
-                            whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(31, 74, 134, 0.5)' }}
-                            transition={{ duration: 0.3 }}
-                        />
-                    </motion.div>
-
                     {/* CTA + Social Links */}
                     <motion.div
                         className="flex flex-wrap gap-6 justify-center items-center"
