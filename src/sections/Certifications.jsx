@@ -32,7 +32,7 @@ const Certifications = () => {
                 {/* Section Header - Block Level Container */}
                 <div className="relative mb-8 max-w-7xl mx-auto">
                     <SectionHeader
-                        title="Certifications & Skills"
+                        title="Certifcations"
                     />
                 </div>
 
