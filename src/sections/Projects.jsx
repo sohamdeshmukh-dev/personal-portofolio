@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import SectionHeader from '../components/SectionHeader';
 import DeedCard from '../components/DeedCard';
+
+const FLIP_DURATION = 0.9;
+const REGATHER_SPRING = 1.1;
 
 // Ordered common → rarest, index 0 sits on top of the deck and lands on the left.
 const projects = [
@@ -87,8 +90,22 @@ const projects = [
     }
 ];
 
+// Longest re-deck path: last card's flip cue + its flip + its glide back to the stack.
+const REDECK_MS = ((projects.length - 1) * 0.14 + FLIP_DURATION + REGATHER_SPRING) * 1000;
+
 const Projects = () => {
     const [expanded, setExpanded] = useState(false);
+    // The collapsed deck is only 560px tall, so letting the container snap to that
+    // immediately drops the still-animating cards onto the next section. Pin the
+    // expanded height until the cards are home, then ease it back down.
+    const [heldHeight, setHeldHeight] = useState(null);
+    const deckRef = useRef(null);
+
+    const reDeck = () => {
+        setHeldHeight(deckRef.current?.offsetHeight ?? null);
+        setExpanded(false);
+        setTimeout(() => setHeldHeight(null), REDECK_MS);
+    };
 
     return (
         <section id="projects" className="relative py-12 pb-20 px-6">
@@ -97,41 +114,72 @@ const Projects = () => {
 
                 {/* Desktop: draw-from-deck fan */}
                 <div
-                    className={`hidden md:flex mt-16 ${expanded
+                    ref={deckRef}
+                    className={`hidden md:flex mt-16 transition-[height] duration-500 ${expanded
                         ? 'flex-wrap gap-x-6 gap-y-10 justify-center items-start max-w-[950px] mx-auto'
                         : 'relative h-[560px] cursor-pointer'}`}
+                    style={heldHeight ? { height: heldHeight } : undefined}
                     onClick={expanded ? undefined : () => setExpanded(true)}
                 >
-                    {projects.map((project, i) => (
-                        <motion.div
-                            key={project.title}
-                            layout="position"
-                            initial={false}
-                            className={expanded
-                                ? 'shrink-0 w-[290px]'
-                                : 'absolute inset-x-0 mx-auto w-[290px]'}
-                            style={{ zIndex: expanded ? i : projects.length - i, top: expanded ? undefined : i * 8 }}
-                            animate={{ rotate: expanded ? 0 : project.tilt }}
-                            transition={{
-                                // Draw: cascade left-to-right, each card gliding into its row spot and settling with a soft spring.
-                                // Re-deck: reverse cascade — the last-drawn card returns to the stack first.
-                                layout: expanded
-                                    ? { type: 'spring', duration: 1.4, bounce: 0.2, delay: i * 0.18 }
-                                    : { type: 'spring', duration: 1.1, bounce: 0.15, delay: (projects.length - 1 - i) * 0.14 },
-                                rotate: expanded
-                                    ? { duration: 0.8, delay: i * 0.18, ease: 'easeOut' }
-                                    : { duration: 0.6, delay: (projects.length - 1 - i) * 0.14, ease: 'easeIn' }
-                            }}
-                        >
-                            <DeedCard {...project} />
-                        </motion.div>
-                    ))}
+                    {projects.map((project, i) => {
+                        // Draw: cascade left-to-right (top card first), each card gliding out then flipping face-up.
+                        // Re-deck: reverse cascade — the last-drawn card flips face-down first, then the stack regathers.
+                        const cue = expanded ? i * 0.18 : (projects.length - 1 - i) * 0.14;
+                        const flipDelay = expanded ? cue + 0.3 : cue;
+                        const slideDelay = expanded ? cue : cue + FLIP_DURATION;
+
+                        return (
+                            <motion.div
+                                key={project.title}
+                                layout="position"
+                                initial={false}
+                                className={expanded
+                                    ? 'shrink-0 w-[290px]'
+                                    : 'absolute inset-x-0 mx-auto w-[290px]'}
+                                style={{ zIndex: expanded ? i : projects.length - i, top: expanded ? undefined : i * 8 }}
+                                animate={{ rotate: expanded ? 0 : project.tilt }}
+                                transition={{
+                                    layout: expanded
+                                        ? { type: 'spring', duration: 1.4, bounce: 0.2, delay: slideDelay }
+                                        : { type: 'spring', duration: REGATHER_SPRING, bounce: 0.15, delay: slideDelay },
+                                    rotate: expanded
+                                        ? { duration: 0.8, delay: slideDelay, ease: 'easeOut' }
+                                        : { duration: 0.6, delay: slideDelay, ease: 'easeIn' }
+                                }}
+                            >
+                                <div className="[perspective:1800px] w-[290px] h-[480px]">
+                                    <motion.div
+                                        className="relative w-full h-full [transform-style:preserve-3d]"
+                                        initial={false}
+                                        animate={{ rotateY: expanded ? 180 : 0 }}
+                                        transition={{ duration: FLIP_DURATION, delay: flipDelay, ease: [.2, .9, .3, 1] }}
+                                    >
+                                        {/* Face down: property-card back */}
+                                        <div className="absolute inset-0 [backface-visibility:hidden] rounded-md overflow-hidden border-2 border-[#1A1A1A] shadow-xl shadow-black/50 bg-white">
+                                            <img
+                                                src="/Property.png"
+                                                alt=""
+                                                // scale crops the source's own border hairlines out of frame
+                                                className="w-full h-full object-cover scale-110"
+                                                draggable={false}
+                                            />
+                                        </div>
+
+                                        {/* Face up: the deed */}
+                                        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                                            <DeedCard {...project} />
+                                        </div>
+                                    </motion.div>
+                                </div>
+                            </motion.div>
+                        );
+                    })}
                 </div>
 
                 {expanded ? (
                     <div className="hidden md:block mt-10 text-center">
                         <button
-                            onClick={() => setExpanded(false)}
+                            onClick={reDeck}
                             className="font-display text-xs font-semibold tracking-[.14em] uppercase px-5 py-2.5 rounded-full text-off-white/60 border border-white/15 hover:text-electric-blue hover:border-electric-blue/40 transition-colors"
                         >
                             Re-deck the cards
