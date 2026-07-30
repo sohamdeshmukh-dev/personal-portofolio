@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import SectionHeader from '../components/SectionHeader';
 import GitHubActivity from '../components/GitHubActivity';
-import OrbitalSkillsGrid from '../components/OrbitalSkillsGrid';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Certifications = () => {
@@ -18,13 +17,6 @@ const Certifications = () => {
         { name: 'Top Skills for Quantitative Analysts', issuer: 'LinkedIn Learning' },
         { name: 'Generative AI Fundamentals', issuer: 'Databricks' }
     ];
-
-    const skillCategories = {
-        'Languages': ['Python', 'Java', 'C', 'Racket', 'SQL', 'R', 'HTML', 'CSS', 'JavaScript', 'TypeScript', 'Bash', 'Swift', 'Dart', 'VBA'],
-        'Frameworks & Tools': ['Git', 'React', 'Unity', 'Flutter', 'Drupal', 'WordPress', 'Jira', 'SAPUI5', 'SAP Fiori', 'SAP BTP', 'Google Gemini', 'PostgreSQL', 'LaTeX', 'Docker', 'AWS'],
-        'AI & Data Analytics': ['Generative AI', 'Quantitative Analytics', 'Pandas', 'NumPy', 'Scikit-learn', 'OpenCV2', 'YOLO', 'TensorFlow', 'PyTorch', 'Matplotlib', '2D→3D Modeling', 'AR Development'],
-        'Other Technical Skills': ['Agile Development', 'API Integration', 'Data Visualization', 'UI/UX Design', 'Version Control', 'Cloud Deployment']
-    };
 
     return (
         <section id="skills" className="relative pt-12 pb-20 px-6 overflow-visible">
@@ -57,12 +49,6 @@ const Certifications = () => {
                             </motion.div>
                         ))}
                     </div>
-                </div>
-
-                {/* Technical Skills - 4 Quadrant Layout */}
-                <div className="relative mb-20 overflow-visible">
-                    {/* Orbital Skills Grid */}
-                    <OrbitalSkillsGrid skillCategories={skillCategories} />
                 </div>
 
                 {/* GitHub Activity Container */}
